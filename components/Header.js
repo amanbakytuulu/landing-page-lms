@@ -1,4 +1,4 @@
-import logo from "../assets/img/logo.png"
+import logo from "../assets/svg/logo.svg"
 import Image from 'next/image'
 import Link from "next/link";
 import {useRouter} from "next/router";
@@ -21,11 +21,11 @@ export default function Header() {
                 font-family: 'Montserrat', sans-serif;
               }
             `}</style>
-            <nav className="navbar has-text-justified-desktop is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
+            <nav className="navbar has-text-justified-desktop is-fixed-top" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <Link href="/">
                         <a className="navbar-item">
-                            <Image alt="Codify LMS x CRM" src={logo}/>
+                            <Image width="169" height="35" alt="Codify LMS x CRM" src={logo}/>
                         </a>
                     </Link>
 
@@ -36,7 +36,7 @@ export default function Header() {
                     </a>
                 </div>
 
-                <div className="navbar-menu v">
+                <div className="navbar-menu">
 
                     <div className="navbar-item">
                         <div className="violet-text">
@@ -61,25 +61,26 @@ export default function Header() {
 
                     <div className="navbar-item">
                         <div className="violet-text">
-                            <h4>{news}</h4>
-                        </div>
-                    </div>
-                    <div className="navbar-item">
-                        <div className="violet-text">
                             <h4>{contacts}</h4>
                         </div>
                     </div>
-                </div>
-                <div className="language_block">
                     <div className="navbar-item navbar-end">
-                    <span onClick={() => router.replace('/ru')}>
+                        <div className="language_block">
+                                <span onClick={() => router.push({
+                                    pathname: "/ru",
+                                }, undefined, {scroll: false})}>
 							 Русский
 						</span>
-                        <span>|</span>
-                        <span onClick={() => router.replace('/en')}>
+                            <span className="media-left media-right">|</span>
+                            <span onClick={() => router.replace({
+                                pathname: "/ru",
+                            }, "/en", {scroll: false})}>
 							English
 						</span>
+
+                        </div>
                     </div>
+
                 </div>
             </nav>
         </>

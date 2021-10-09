@@ -12,10 +12,11 @@
     "axios": "^0.22.0",
     "bulma-start": "0.0.4",
     "next": "11.1.2",
-    "node-sass": "^4.14.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-player": "^2.9.0"
+    "react-player": "^2.9.0",
+    "sass": "^1.42.1",
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "eslint": "7.32.0",

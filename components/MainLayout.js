@@ -14,7 +14,6 @@ export function MainLayout({children, title}) {
                 <meta charSet="utf-8"/>
             </Head>
             <Header/>
-
             <main>
                 {children}
             </main>

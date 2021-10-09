@@ -18,7 +18,7 @@ export default function ChecklistBanner(props) {
                                     <p className="subtitle mt-3 has-text-white">{subtitle}</p>
                                 </div>
                                 <div style={{position: "relative; top: -10px;"}} className="column">
-                                    <Image src={checklistWoman}/>
+                                    <Image style={{Top:200}} src={checklistWoman}/>
                                 </div>
                             </div>
                         </div>

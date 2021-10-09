@@ -14,7 +14,10 @@ export default function Request() {
                             </div>
                         </div>
                         <div className="column">
-                            <SingleForm/>
+
+                            <div className="box">
+                                <SingleForm/>
+                            </div>
                         </div>
                     </div>
                 </div>

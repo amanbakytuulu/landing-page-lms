@@ -10,8 +10,9 @@ import Pricing from "../components/Pricing";
 import ChecklistBanner from "../components/ChecklistBanner";
 import VideoFeedbacks from "../components/VideoFeebacks";
 import Request from "../components/Request";
+import Header from "../components/Header";
 
-export default function Index() {
+export default function Home() {
     const violetHex = "#7367F0"
     let router = useRouter()
     let bannerTitle =

@@ -1,7 +1,15 @@
 import {useRouter} from "next/router";
+import {useState} from "react";
 
 export default function Program() {
     let router = useRouter()
+
+    const [toggleState, setToggleState] = useState()
+
+    const toggleTab = (index) => {
+        setToggleState(index)
+    }
+
     let business =
         router.locale === 'en' ? 'Business' :
             router.locale === 'ru' ? "Для бизнеса" : "Business"
@@ -13,51 +21,91 @@ export default function Program() {
     let kindergarten =
         router.locale === 'en' ? 'Kindergarten' :
             router.locale === 'ru' ? "Для детских садов" : "Kindergarten"
-    let title =
-        router.locale === 'en' ? 'CRM for courses and educational centers' :
-            router.locale === 'ru' ? "CRM для курсов и образовательных центров" : "CRM for courses and educational centers"
+
     let content =
-        router.locale === 'en' ? `<li>Convenient sales funnel with notifications of new orders</li>
-                                  <li>Lead forms gather applications from multiple channels into a single sales funnel!</li>
-                                  <li>Sales reports with filtering by date and manager</li>
-                                  <li>Accounting for online and cash payments</li>
-                                  <li>Quick record of all debtors</li>
-                                  <li>Manager tasks</li>
-                                  <li>Automatic calculation of teachers salaries</li>
-                                  <li>Managing courses, schedules and visits</li>
-                                  <li>Database of all applications, customers and employees</li>`
+        router.locale === 'en' && toggleState === 2 ?
+            `<h1>CRM for courses and educational centers</h1>
+            <ul>
+                <li> Manage the curriculum of classes</li>
+                <li> Mobile learning are accessible wherever and whenever through mobile app.</li>
+                <li> Managing courses, schedules and visits</li>
+                <li> Gamification that allow mentors and teachers to create courses with extra motivation and engagement</li>
+                <li> Collaboration tools: team works, chats</li>
+                <li> Database of all students and accounting for online and cash payments</li>
+            </ul>`
 
-            : router.locale === 'ru' ? `<li>Удобная воронка продаж с уведомлениями о новых заказах</li>
-                                  <li> Формы лидов собирают заявки из нескольких каналов в единую воронку продаж!</li>
-                                  <li>Отчеты о продажах с фильтрацией по дате и менеджеру</li>
-                                  <li>Учет онлайн-платежей и платежей наличными</li>
-                                  <li>Быстрый учет всех должников</li>
-                                  <li>Задачи менеджера</li>
-                                  <li>Автоматический расчет заработной платы учителей</li>
-                                  <li>Управление курсами, расписаниями и посещениями</li>
-                                  <li>База данных всех приложений, клиентов и сотрудников</li>`
-                : "CRM for courses and educational centers"
+            : router.locale === 'ru' && toggleState === 2 ?
+                `<h1>CRM для курсов и образовательных центров</h1>
+            <ul>
+                <li>Управление учебным планом занятий</li>
+                <li>Мобильное обучение и доступны в любом месте и в любое время через мобильное приложение.</li>
+                <li>Управление курсами, расписаниями и посещениями</li>
+                <li>Геймификация, которая позволяет менторам и учителям создавать курсы с дополнительной мотивацией и вовлеченностью</li>
+                <li>Инструменты совместной работы: командная работа, чаты</li>
+                <li>База данных всех студентов и учет платежей</li>
+            </ul>`
 
+            : router.locale === 'en' && toggleState === 1 ?
+                `<h1>Business</h1>
+                 <ul>
+                    <li> Store a database of your customers</li>
+                    <li> Lead forms gather applications from multiple channels into a single sales funnel</li>
+                    <li> Conveniently create deals at each stage</li>
+                    <li> Accounting for online and cash payments</li>
+                    <li> A corporate LMS for delivering online/offline training and learning content to your employees</li>
+                 </ul>`
+            : router.locale === 'ru' && toggleState === 1 ?
+                 `<h1>Бизнес</h1>
+                  <ul>
+                    <li> Храните базу данных о своих клиентах</li>
+                    <li> Лид-формы собирают заявки из нескольких каналов в единую воронку продаж</li>
+                    <li> Удобное создание сделок на каждом этапе</li>
+                    <li> Учет онлайн- и наличных платежей</li>
+                    <li> Корпоративная LMS для проведения онлайн/оффлайн тренингов и обучения сотрудников</li>
+                 </ul>`
+            : router.locale === 'en' && toggleState === 3 ?
+                  `<h1>Kindergarten</h1>
+                  <ul>
+                    <li> Database of children and their parents</li>
+                    <li> Report on children's activity for parents on the mobile app</li>
+                    <li> Online accounting and cash payments</li>
+                    <li> Quick accounting of all debtors</li>
+                    <li> Automatic calculation of teachers' salaries</li>
+                 </ul>`
+            :
+                  `<h1>Для детских садов</h1>
+                  <ul>
+                    <li> База данных детей и их родителей</li>
+                    <li> Отчет об активности детей для родителей в мобильном приложении</li>
+                    <li> Онлайн-бухгалтерия и денежные платежи</li>
+                    <li> Быстрый учет всех должников</li>
+                    <li> Автоматический расчет заработной платы учителей</li>
+                 </ul>`
 
     return (
         <>
+            <ul>
+
+            </ul>
+
             <div className="container mt-6">
                 <div className="box">
                     <div className="content">
                         <div className="tabs is-centered">
-                            <h1>Program</h1>
+                            <h1>{router.locale === 'en'? "Category" : router.locale === "ru" ? "Категории" : "Category"}</h1>
                             <ul>
-                                <li><a>{business}</a></li>
-                                <li className="is-active violet-text"><a>{school}</a></li>
-                                <li><a>{kindergarten}</a></li>
+                                <li className={toggleState === 1 ? "is-active violet-text" : ""}
+                                    onClick={() => toggleTab(1)}><a>{business}</a></li>
+                                <li className={toggleState === 2 ? "is-active violet-text" : ""}
+                                    onClick={() => toggleTab(2)}><a>{school}</a>
+                                </li>
+                                <li className={toggleState === 3 ? "is-active violet-text" : ""}
+                                    onClick={() => toggleTab(3)}><a>{kindergarten}</a></li>
                             </ul>
                         </div>
                         <div className="columns">
                             <div className="column">
-                                <h1>{title}</h1>
-                                <ul>
-                                    <div dangerouslySetInnerHTML={{__html: content}}/>
-                                </ul>
+                                <div dangerouslySetInnerHTML={{__html: content}}/>
                             </div>
                             <div className="column">
 
