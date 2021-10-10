@@ -2,10 +2,10 @@ import logo from "../assets/svg/logo.svg"
 import Image from 'next/image'
 import Link from "next/link";
 import {useRouter} from "next/router";
-import {i18n} from "../next.config";
 
 export default function Header() {
     let router = useRouter()
+
     let product = router.locale === 'en' ? 'Products' : router.locale === 'ru' ? "Продукты" : "Products"
     let category = router.locale === 'en' ? 'Category' : router.locale === 'ru' ? "Категории" : "Category"
     let features = router.locale === 'en' ? 'Features' : router.locale === 'ru' ? "Особенности" : "Features"
@@ -29,7 +29,7 @@ export default function Header() {
                         </a>
                     </Link>
 
-                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="true">
                         <span aria-hidden="true"/>
                         <span aria-hidden="true"/>
                         <span aria-hidden="true"/>
@@ -71,6 +71,7 @@ export default function Header() {
                                 }, undefined, {scroll: false})}>
 							 Русский
 						</span>
+
                             <span className="media-left media-right">|</span>
                             <span onClick={() => router.replace({
                                 pathname: "/ru",

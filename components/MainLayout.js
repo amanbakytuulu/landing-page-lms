@@ -8,7 +8,7 @@ export function MainLayout({children, title}) {
     return (
         <>
             <Head>
-
+                <link rel="icon" href="/assets/img/logo.png"/>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
                 <title>{title} | Codify CRM</title>
                 <meta charSet="utf-8"/>

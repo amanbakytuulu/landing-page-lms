@@ -1,6 +1,6 @@
 import {useRouter} from "next/router";
 
-export default function MainFeatures() {
+export default function MainFeatures(props) {
     let router = useRouter()
     let locale = router.locale
 
@@ -41,7 +41,7 @@ export default function MainFeatures() {
                             <div className="card-content">
                                 <div className="content">
                                     <div className="content-body">
-                                        <h4 className="violet-text">CRM</h4>
+                                        <h4 {...props} className="violet-text">CRM</h4>
                                         <p>{crm}</p>
                                     </div>
                                 </div>

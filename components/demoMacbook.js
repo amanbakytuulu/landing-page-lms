@@ -1,14 +1,17 @@
 import macbook from "../assets/img/laptop.png"
 import Image from "next/image";
 import ReactPlayer from "react-player";
+import {useRouter} from "next/router";
 
 export default function DemoMacbook() {
+    const router = useRouter()
+    let title = router.locale === "ru" ? "Демонстрация работы системы":"Demo of system"
     return (
         <>
             <div className="container mt-6">
                 <div className="box has-text-centered-desktop">
                     <div className="content level-left">
-                        <h1>Demo of system</h1>
+                        <h1>{title}</h1>
                     </div>
                     <div className="laptop">
                         <Image src={macbook} alt=""/>

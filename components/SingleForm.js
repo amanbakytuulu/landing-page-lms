@@ -19,8 +19,8 @@ export default function SingleForm(props) {
         axios.post('https://stage.crm.codifylab.com/api/crm/leads/?org_id=17', values, httpConfig)
             .then(res => {
                 if (res.status === 201) {
-                    props.setShowDoneModal(true)
                     props.setShowModal(false)
+                    props.setShowDoneModal(true)
                 }
             })
             .catch(function (error) {
@@ -35,7 +35,7 @@ export default function SingleForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">Name</label>
                     <div className="control">
-                        <input className="input is-small is-centered"
+                        <input className="input is-small is-centered" required
                                onChange={e => change('first_name', e)}
                                type="text"
                                placeholder="Cletus Kasady"/>
@@ -45,7 +45,7 @@ export default function SingleForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">Phone number</label>
                     <div className="control">
-                        <input className="input is-small" type="phone" onChange={e => change('phone_number', e)}
+                        <input className="input is-small" type="phone" required onChange={e => change('phone_number', e)}
                                placeholder="+996 666 666 666"/>
                     </div>
                 </div>
@@ -67,8 +67,8 @@ export default function SingleForm(props) {
                 </div>
 
                 <div className="has-text-centered-desktop has-text-centered-mobile">
-                    <button type="submit" style={{backgroundColor: "#7367F0"}}
-                            className='button has-text-white  has-text-weight-bold'>
+                    <button type="submit" style={{backgroundColor: "#7367F0", paddingLeft:60, paddingRight:60}}
+                            className='button has-text-white has-text-weight-bold'>
                         Send Request
                     </button>
                     <br/>

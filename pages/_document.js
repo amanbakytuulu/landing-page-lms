@@ -9,7 +9,10 @@ class MainDocument extends Document {
     render() {
         return (
             <Html>
-                <Head />
+                <Head>
+                    <link rel="icon" href="/assets/img/logo.png"/>
+                </Head>
+
                 <body>
                 <Main />
                 <NextScript />

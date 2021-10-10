@@ -1,10 +1,10 @@
 import {useRouter} from "next/router";
 import {useState} from "react";
 
-export default function Program() {
+export default function Category() {
     let router = useRouter()
 
-    const [toggleState, setToggleState] = useState()
+    const [toggleState, setToggleState] = useState(2)
 
     const toggleTab = (index) => {
         setToggleState(index)
@@ -91,8 +91,8 @@ export default function Program() {
             <div className="container mt-6">
                 <div className="box">
                     <div className="content">
+                        <h1 className>{router.locale === 'en'? "Category" : router.locale === "ru" ? "Категории" : "Category"}</h1><br/>
                         <div className="tabs is-centered">
-                            <h1>{router.locale === 'en'? "Category" : router.locale === "ru" ? "Категории" : "Category"}</h1>
                             <ul>
                                 <li className={toggleState === 1 ? "is-active violet-text" : ""}
                                     onClick={() => toggleTab(1)}><a>{business}</a></li>

@@ -17,8 +17,8 @@ export default function ChecklistBanner(props) {
                                     <button className="button is-danger is-center has-text-weight-bold">{checklist}</button>
                                     <p className="subtitle mt-3 has-text-white">{subtitle}</p>
                                 </div>
-                                <div style={{position: "relative; top: -10px;"}} className="column">
-                                    <Image style={{Top:200}} src={checklistWoman}/>
+                                <div className="column checklist-svg">
+                                    <Image src={checklistWoman}/>
                                 </div>
                             </div>
                         </div>
