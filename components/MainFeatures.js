@@ -37,24 +37,11 @@ export default function MainFeatures(props) {
             <div className="container mt-6">
                 <div className="columns">
                     <div className="column">
-                        <div className="card">
+                        <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
                                     <div className="content-body">
-                                        <h4 {...props} className="violet-text">CRM</h4>
-                                        <p>{crm}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="card">
-                            <div className="card-content">
-                                <div className="content">
-                                    <div className="content-body">
-                                        <h4 className="violet-text">LMS</h4>
+                                        <h4 {...props} className="violet-text">LMS</h4>
                                         <p>{lms}</p>
                                     </div>
                                 </div>
@@ -63,11 +50,24 @@ export default function MainFeatures(props) {
                     </div>
 
                     <div className="column">
-                        <div className="card">
+                        <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
-                                    <h4 className="violet-text">CRM + LMS</h4>
-                                    <p>{crm_lms}</p>
+                                    <div className="content-body">
+                                        <h4 className="violet-text">LMS + CRM</h4>
+                                        <p>{crm_lms}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="column">
+                        <div className="card rounded">
+                            <div className="card-content">
+                                <div className="content">
+                                    <h4 className="violet-text">CRM</h4>
+                                    <p>{crm}</p>
                                 </div>
                             </div>
                         </div>

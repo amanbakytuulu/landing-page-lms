@@ -1,76 +1,61 @@
 import Image from "next/image";
 import channel from "../assets/svg/icons/channel.svg"
+import cross from "../assets/svg/icons/cross.svg"
 import manager from "../assets/svg/icons/manager.svg"
+import customer from "../assets/svg/icons/customer.svg"
+import payments from "../assets/svg/icons/payments.svg"
+import database from "../assets/svg/icons/database.svg"
 import {useRouter} from "next/router";
+import en from "../locales/en";
+import ru from "../locales/ru";
 
 
 export default function Features() {
     let router = useRouter()
-    let title1 =
-        router.locale === 'en' ? `Channel efficiency` :
-        router.locale === 'ru' ? "Эффективность каналлов" : "Channel efficiency"
-
-    let description1 =
-        router.locale === 'en' ? `Accept and distribute applications from social networks, sites, advertising` :
-            router.locale === 'ru' ? "Принимайте и распространяйте заявки из социальных сетей, сайтов, рекламы" :
-                "Accept and distribute applications from social networks, sites, advertising"
-
-    let title2 =
-        router.locale === 'en' ? `Manager tasks` :
-            router.locale === 'ru' ? "Задачи менеджера" : "Manager tasks"
-
-    let description2 =
-        router.locale === 'en' ? `Set daily tasks for each client and track staff performance` :
-        router.locale === 'ru' ? "Устанавливайте ежедневные задачи для каждого клиента и следите за работой персонала" :
-            "Set daily tasks for each client and track staff performance"
-
-    let title3 =
-        router.locale === 'en' ? "Customer accounting" :
-        router.locale === 'ru' ? "Учет клиентов" :
-            "Customer accounting"
-
-    let description3
-        = router.locale === 'en' ? `Track the number of customers at each stage, starting from the application to the conclusion of the deal` :
-        router.locale === 'ru' ? "Отслеживайте количество клиентов на каждом этапе, начиная с подачи заявки и заканчивая заключением сделки" :
-            "Track the number of customers at each stage, starting from the application to the conclusion of the deal"
-
-
+    const {locale} = router;
+    const t = locale === 'en' ? en : ru;
 
     return (
         <>
-            <div className="container mt-6">
+            <div style={{scrollMarginTop: 100}} id="features-block" className="container mt-6">
                 <div className="columns">
 
                     <div className="column">
-                        <div className="card">
+                        <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
-                                    <Image src={channel}/>
-                                    <h3>{title1}</h3>
-                                    {description1}
+                                    <Image width="70" height="70" src={channel}/>
+                                    <h3>{t.features.channelTitle}</h3>
+                                    <p>
+                                        {t.features.channelDescription}
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="column">
-                        <div className="card">
+                        <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
-                                    <Image src={manager}/>
-                                    <h3>{title2}</h3>
-                                    {description2}
+                                    <Image width="70" height="70" src={manager}/>
+
+                                    <h3>{t.features.managerTitle}</h3>
+                                    <p>
+                                        {t.features.managerDescription}
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="column">
-                        <div className="card">
+                        <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
-                                    <Image src={channel}/>
-                                    <h3>Channel efficiency</h3>
-                                    Accept and distribute applications from social
-                                    networks, sites, advertising
+                                    <Image width="70" height="70" src={customer}/>
+                                    <h3>{t.features.clientsTitle}</h3>
+                                    <p>
+                                        {t.features.clientsDescription}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -80,37 +65,34 @@ export default function Features() {
                 <div className="columns">
 
                     <div className="column">
-                        <div className="card">
+                        <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
-                                    <Image src={channel}/>
-                                    <h3>Channel efficiency</h3>
-                                    Accept and distribute applications from social
-                                    networks, sites, advertising
+                                    <Image width="70" height="70" src={payments}/>
+                                    <h3>{t.features.paymentsTitle}</h3>
+                                    <p>{t.features.paymentsDescription}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="column">
-                        <div className="card">
+                        <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
-                                    <Image src={channel}/>
-                                    <h3>Channel efficiency</h3>
-                                    Accept and distribute applications from social
-                                    networks, sites, advertising
+                                    <Image width="70" height="70" src={database}/>
+                                    <h3>{t.features.databaseTitle}</h3>
+                                    <p>{t.features.databaseDescription}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="column">
-                        <div className="card">
+                        <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
-                                    <Image src={channel}/>
-                                    <h3>Channel efficiency</h3>
-                                    Accept and distribute applications from social
-                                    networks, sites, advertising
+                                    <Image width="70" height="70" src={cross}/>
+                                    <h3>{t.features.crossTitle}</h3>
+                                    {t.features.crossDescription}
                                 </div>
                             </div>
                         </div>

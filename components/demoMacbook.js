@@ -8,7 +8,7 @@ export default function DemoMacbook() {
     let title = router.locale === "ru" ? "Демонстрация работы системы":"Demo of system"
     return (
         <>
-            <div className="container mt-6">
+            <div style={{scrollMarginTop: 100}} id="product-block" className="container mt-6">
                 <div className="box has-text-centered-desktop">
                     <div className="content level-left">
                         <h1>{title}</h1>

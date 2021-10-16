@@ -1,8 +1,15 @@
 import {useState} from "react";
 import Modal from "./Modal";
 import SingleForm from "./SingleForm";
+import {useRouter} from "next/router";
+import en from "../locales/en";
+import ru from "../locales/ru";
 
 export default function Pricing(props) {
+    let router = useRouter()
+    const { locale } = router;
+    const t = locale === 'en' ? en : ru;
+
     const [toggleState, setToggleState] = useState(false)
 
     const togglePriceMode = () => {
@@ -11,17 +18,17 @@ export default function Pricing(props) {
 
     return (
         <>
-            <div className="container mt-6">
-                <div className="box">
+            <div style={{scrollMarginTop: 99}} id="pricing-block" className="container mt-6">
+                <div>
                     <div className="content has-text-centered-desktop has-text-centered-mobile">
-                        <h1>Tariffs</h1>
+                        <h1>{t.pricing.title}</h1>
                         <div className="content-body has-text-centered-desktop has-text-centered-mobile">
                             <div className="label mb-6">
-                                <span className="mr-3">month</span>
+                                <span className="mr-3">{t.pricing.month}</span>
                                 <label className="form-switch">
                                     <input type="checkbox" onClick={() => togglePriceMode()}/>
                                     <i/>
-                                    <span className={toggleState ?"ml-3 violet-text":"ml-3"}>year</span>
+                                    <span className={toggleState ?"ml-3 violet-text":"ml-3"}>{t.pricing.year}</span>
                                 </label>
                             </div>
                         </div>
@@ -29,55 +36,55 @@ export default function Pricing(props) {
                         <div className="columns is-flex-mobile price-block-wrapper">
                             <div className="column">
                                 <div className="price-block">
-                                    <div className={toggleState ? "title title-active":"title"}>Small</div>
-                                    <span className="cost">{toggleState ? "$288" : "$29"}</span>{toggleState ? "/year" : "/month"} <br/>
-                                    <h5 className="subtitle is-5">Active users:</h5>
-                                    <h6 className="subtitle is-6">From 1 to 100</h6>
+                                    <div className={toggleState ? "title title-active":"title"}>{t.pricing.small}</div>
+                                    <span className="dollar">$</span> <span className="cost">{toggleState ? "288" : "29"}</span>/{toggleState ? t.pricing.year : t.pricing.month} <br/>
+                                    <h6 className="subtitle is-6">{t.pricing.activeUsers}</h6>
+                                    <h6 className="subtitle is-6">{t.pricing.a1_100}</h6>
                                     <button onClick={() => props.setShowModal(true)}
-                                            style={{width: "65%", margin: "auto", marginTop: "90px"}} className="btn-grad">
-                                        Buy now
+                                            style={{width: "80%", margin: "auto", marginTop: "90px"}} className="btn-grad zoomable">
+                                        {t.pricing.btnText}
                                     </button>
                                 </div>
                             </div>
                             <div className="column">
                                 <div className="price-block">
-                                    <div className={toggleState ? "title title-active":"title"}>Medium</div>
-                                    <span className="cost">{toggleState ? "$600" : "$50"}</span>{toggleState ? "/year" : "/month"} <br/>
-                                    <h5 className="subtitle is-5">Active users:</h5>
-                                    <h6 className="subtitle is-6">From 101 to 200</h6>
+                                    <div className={toggleState ? "title title-active":"title"}>{t.pricing.medium}</div>
+                                    <span className="dollar">$</span><span className="cost">{toggleState ? "600" : "50"}</span>/{toggleState ? t.pricing.year : t.pricing.month} <br/>
+                                    <h6 className="subtitle is-6">{t.pricing.activeUsers}</h6>
+                                    <h6 className="subtitle is-6">{t.pricing.a101_200}</h6>
                                     <button onClick={() => props.setShowModal(true)}
-                                        style={{width: "65%", margin: "auto", marginTop: "90px"}} className="btn-grad">
-                                        Buy now
+                                        style={{width: "80%", margin: "auto", marginTop: "90px"}} className="btn-grad zoomable">
+                                        {t.pricing.btnText}
                                     </button>
                                 </div>
                             </div>
                             <div className="column">
                                 <div className="price-block">
-                                    <div className={toggleState ? "title title-active":"title"}>Large</div>
-                                    <span className="cost">{toggleState ? "$1188" : "$99"}</span>{toggleState ? "/year" : "/month"} <br/>
-                                    <h5 className="subtitle is-5">Active users:</h5>
-                                    <h6 className="subtitle is-6">From 201 to 500</h6>
+                                    <div className={toggleState ? "title title-active":"title"}>{t.pricing.large}</div>
+                                    <span className="dollar">$</span><span className="cost">{toggleState ? "1188" : "99"}</span>/{toggleState ? t.pricing.year : t.pricing.month} <br/>
+                                    <h6 className="subtitle is-6">{t.pricing.activeUsers}</h6>
+                                    <h6 className="subtitle is-6">{t.pricing.a201_500}</h6>
                                     <button onClick={() => props.setShowModal(true)}
-                                            style={{width: "65%", margin: "auto", marginTop: "90px"}} className="btn-grad">
-                                        Buy now
+                                            style={{width: "80%", margin: "auto", marginTop: "90px"}} className="btn-grad zoomable">
+                                        {t.pricing.btnText}
                                     </button>
                                 </div>
                             </div>
                             <div className="column">
                                 <div className="price-block">
-                                    <div className={toggleState ? "title title-active":"title"}>Enterprise</div>
-                                    <span className="cost">{toggleState ? "$2388" : "$199"}</span>{toggleState ? "/year" : "/month"} <br/>
-                                    <h5 className="subtitle is-5">Active users:</h5>
-                                    <h6 className="subtitle is-6">From 501 to 1000</h6>
+                                    <div className={toggleState ? "title title-active":"title"}>{t.pricing.enterprise}</div>
+                                    <span className="dollar">$</span><span className="cost">{toggleState ? "2388" : "199"}</span>/{toggleState ? t.pricing.year : t.pricing.month} <br/>
+                                    <h6 className="subtitle is-6">{t.pricing.activeUsers}</h6>
+                                    <h6 className="subtitle is-6">{t.pricing.a501_1000}</h6>
                                     <button onClick={() => props.setShowModal(true)}
-                                            style={{width: "65%", margin: "auto", marginTop: "90px"}} className="btn-grad">
-                                        Buy now
+                                            style={{width: "80%", margin: "auto", marginTop: "90px"}} className="btn-grad zoomable">
+                                        {t.pricing.btnText}
                                     </button>
                                 </div>
                             </div>
 
                         </div>
-                        <h5>Leave a request to find out the conditions and detailed information for your institution</h5>
+                        <h5>{t.pricing.labelText}</h5>
                     </div>
                 </div>
             </div>

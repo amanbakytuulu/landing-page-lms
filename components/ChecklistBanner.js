@@ -1,24 +1,51 @@
 import Image from "next/image";
 import checklistWoman from "../assets/svg/Group.svg"
+import {useRouter} from "next/router";
+import en from "../locales/en";
+import ru from "../locales/ru";
+import {useState} from "react";
+import Modal from "./Modal";
 
 export default function ChecklistBanner(props) {
-    let title = "Still not convinced? Start with a 14-day FREE trial"
-    let subtitle = "You will get full access to with all the features for 14 days."
-    let checklist = "Download checklist"
+    let router = useRouter()
+    const {locale} = router;
+    const t = locale === 'en' ? en : ru;
+
+    const [showModal, setShowModal] = useState(false)
+
     return (
         <>
             <div className="container mt-6">
-                <div className="content">
-                    <section style={{backgroundColor: props.bgColor}} className="hero is-dark">
-                        <div className="hero-body">
-                            <div className="columns">
-                                <div className="column">
-                                    <p className="title">{title}</p>
-                                    <button className="button is-danger is-center has-text-weight-bold">{checklist}</button>
-                                    <p className="subtitle mt-3 has-text-white">{subtitle}</p>
-                                </div>
-                                <div className="column checklist-svg">
-                                    <Image src={checklistWoman}/>
+                <div className="box content">
+                    <section className="hero">
+                        <div className="bubbles">
+                            <div className="hero-body">
+                                <div className="columns">
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="bubble"/>
+                                    <div className="column">
+                                        <p className="title">{t.checklist.title}</p>
+                                        <form action='checklist.pdf'>
+                                            <button className="button is-danger is-center has-text-weight-bold">{t.checklist.btnText}</button>
+                                        </form>
+                                        <Modal show={showModal} onClose={() => setShowModal(false)}
+                                        >
+                                            Test
+                                        </Modal>
+                                        <p className=" mt-3">{t.checklist.subtitle}</p>
+                                    </div>
+                                    <div className="column checklist-svg">
+                                        <Image src={checklistWoman}/>
+                                    </div>
                                 </div>
                             </div>
                         </div>

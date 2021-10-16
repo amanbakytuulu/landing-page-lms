@@ -1,23 +1,27 @@
 import SingleForm from "./SingleForm";
+import {useRouter} from "next/router";
+import en from "../locales/en";
+import ru from "../locales/ru";
 
 export default function Request(props) {
+    let router = useRouter()
+    const {locale} = router;
+    const t = locale === 'en' ? en : ru;
+
     return (
         <>
             <div className="container mt-6">
                 <div className="columns">
                     <div className="column">
-                        <div className="content">
-                            <h1>Reviews</h1>
-                            <p>If you have any questions, we will help you!
-                                Fill out the application and we will contact you!</p>
+                        <div className="content has-text-left">
+                            <h1>{t.contacts.title}</h1>
+                            <p>{t.contacts.subtitle}</p>
                         </div>
                     </div>
-                    <div className="column has-text-centered-desktop has-text-centered-mobile">
-                        <button onClick={() => props.setShowModal(true)} type="submit"
-                                style={{backgroundColor: "#7367F0", paddingLeft: 60, paddingRight: 60}}
-                                className='button has-text-white has-text-weight-bold'>
-                            Send Request
-                        </button>
+                    <div className="column">
+                        <div className="box request-box zoomable">
+                            <SingleForm/>
+                        </div>
                     </div>
                 </div>
             </div>

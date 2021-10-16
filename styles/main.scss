@@ -1,5 +1,30 @@
 html, body {
   overflow-x: hidden;
+  background-color: rgba(231, 234, 243, 0.13);
+  scroll-behavior: smooth;
+  nav{
+    background-color: red;
+  }
+}
+.rounded{
+  border-radius: 30px;
+}
+.container{
+  @media (max-width: 1000px) {
+    margin: 20px;
+    @media (max-width: 700px) {
+      margin: 10px;
+    }
+  }
+  .box{
+    border-radius: 30px;
+    -webkit-transition: transform .2s;
+  }
+  .card:hover{
+    transition: transform .2s;
+    transform: scale(1.1);
+  }
+
 }
 
 .my-modal {
@@ -35,11 +60,21 @@ html, body {
     }
 
     .social-media-links{
-      @media (max-width: 800px) {
-        color: #7367F0;
-        width: 80%;
-        display: inline-block;
+      justify-content: right;
+
+      @media (max-width: 980px) {
+        ul{
+          background-color: #7367F0;
+        }
+        margin: auto;
+        fill: black;
         justify-content: space-between;
+      }
+      .social-media-item li{
+        @media (max-width: 980px) {
+          background-color: #7367F0;
+          fill: red;
+        }
       }
     }
 
@@ -62,6 +97,21 @@ html, body {
         width: 900px;
         height: 800px;
         z-index: -10;
+        background: linear-gradient(-45deg, #ff8e22, rgba(255, 159, 67, 0.88), rgba(202, 67, 255, 0.68), rgb(115, 103, 240));
+        background-size: 400% 400%;
+        animation: gradient 7s ease infinite;
+        @keyframes gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
         @media (max-width: 920px) {
           width: 400px;
           height: 400px;
@@ -70,16 +120,20 @@ html, body {
           display: none;
         }
 
-        background: linear-gradient(219.94deg,
-                rgba(255, 159, 67, 0.42) 16.33%,
-                rgba(255, 159, 67, 0.68) 34.49%,
-                rgba(255, 159, 67, 0.88) 53.77%,
-                #FF8E22 87.5%)
+        //background: linear-gradient(219.94deg,
+        //        rgba(255, 159, 67, 0.42) 16.33%,
+        //        rgba(255, 159, 67, 0.68) 34.49%,
+        //        rgba(255, 159, 67, 0.88) 53.77%,
+        //        #FF8E22 87.5%)
       }
 
-      img {
-        left: -100px;
-
+      .img {
+        z-index: 0;
+        transition: 2s;
+      }
+      .img:hover{
+        transition: 2s;
+        transform: scale(1.1);
       }
     }
 
@@ -252,6 +306,7 @@ html, body {
   }
 }
 .price-block {
+  background-color: white;
   width: 300px;
   height: 450px;
   text-align: center;
@@ -275,6 +330,12 @@ html, body {
   .cost{
     font-size: 72px;
     color: #7367F0;
+    font-weight: bold;
+  }
+  .dollar{
+    font-size: 72px;
+    color: #7367F0;
+    font-weight: normal;
   }
 }
 .video-block-wrapper{
@@ -299,6 +360,7 @@ html, body {
   background-image: linear-gradient(to right, rgba(117, 106, 240, 1), rgba(120, 109, 241, 1), rgba(132, 122, 242, 1),
           rgba(147, 138, 243, 1), rgba(153, 144, 245, 1));
   cursor: pointer;
+  font-weight: bolder;
 }
 
 .btn-grad {
@@ -331,6 +393,20 @@ html, body {
 
 .language_block {
   cursor: pointer;
+}
+
+.language_img{
+  border-radius: 50px;
+}
+
+.request-box{
+  padding: 50px;
+}
+.zoomable{
+  transition: 2s;
+}
+.zoomable:hover{
+  transform: scale(1.1);
 }
 
 .laptop {
@@ -520,7 +596,110 @@ html, body {
     opacity: 0;
     border-radius: 50%;
   }
-
-
 }
+
+.lang-dropdown {
+  .navbar-dropdown {
+    width: 180px;
+
+    .navbar-item {
+      display: flex;
+      align-items: center;
+
+      img {
+        display: block;
+        height: 26px;
+        width: 26px;
+        min-width: 26px;
+        border-radius: 50%;
+      }
+
+      span {
+        display: block;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+
+$bubble-count: 50;
+$sway-type: "sway-left-to-right", "sway-right-to-left";
+
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+@function sample($list) {
+  @return nth($list, random(length($list)));
+}
+
+.bubbles {
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  left: var(--bubble-left-offset);
+  bottom: -75%;
+  display: block;
+  width: var(--bubble-radius);
+  height: var(--bubble-radius);
+  border-radius: 50%;
+  animation: float-up var(--bubble-float-duration) var(--bubble-float-delay) ease-in infinite;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: hsla(245, 82%, 67%, 0.51);
+    border-radius: inherit;
+    animation: var(--bubble-sway-type) var(--bubble-sway-duration) var(--bubble-sway-delay) ease-in-out alternate infinite;
+  }
+
+  @for $i from 0 through $bubble-count {
+    &:nth-child(#{$i}) {
+      --bubble-left-offset: #{random_range(0vw, 100vw)};
+      --bubble-radius: #{random_range(1vw, 10vw)};
+      --bubble-float-duration: #{random_range(6s, 12s)};
+      --bubble-sway-duration: #{random_range(4s, 6s)};
+      --bubble-float-delay: #{random_range(0s, 4s)};
+      --bubble-sway-delay: #{random_range(0s, 4s)};
+      --bubble-sway-type: #{sample($sway-type)};
+    }
+  }
+}
+
+@keyframes float-up {
+  to {
+    transform: translateY(-175vh);
+  }
+}
+
+@keyframes sway-left-to-right {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes sway-right-to-left {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 

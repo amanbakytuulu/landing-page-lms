@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import closeIcon from "../assets/img/XcloseImage.png"
+import Image from "next/image";
 
 const Modal = ({ show, onClose, children, title }) => {
     const [isBrowser, setIsBrowser] = useState(false);
@@ -19,7 +21,7 @@ const Modal = ({ show, onClose, children, title }) => {
             <StyledModal>
                 <StyledModalHeader>
                     <a href="#" onClick={handleCloseClick}>
-                        x
+                        <Image src={closeIcon}/>
                     </a>
                 </StyledModalHeader>
                 <StyledModalBody>{children}</StyledModalBody>

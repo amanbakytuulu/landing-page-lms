@@ -8,18 +8,22 @@ import DynamicBanner from "../components/DynamicBanner";
 import Features from "../components/Features";
 import Pricing from "../components/Pricing";
 import ChecklistBanner from "../components/ChecklistBanner";
-import VideoFeedbacks from "../components/VideoFeebacks";
 import Request from "../components/Request";
-import Header from "../components/Header";
 import {useState} from "react";
 import Modal from "../components/Modal";
 import SingleForm from "../components/SingleForm";
 import Image from "next/image";
 import check from "../assets/img/QuaintLikelyFlyingfish-size_restricted.gif";
+import en from '/locales/en';
+import ru from '/locales/ru';
+import MainBanner from "../components/MainBanner";
+import VideoFeedbacks from "../components/VideoFeebacks";
 
-export default function Home() {
+export default function HomePage() {
     const violetHex = "#7367F0"
     let router = useRouter()
+    const { locale } = router;
+    const t = locale === 'en' ? en : ru;
 
     let trialBtnText = router.locale === "ru"? "Попробуй бесплатный период прямо сейчас!" : "Try free trial now!"
     let trialRequestBtnText = router.locale === "ru"? "Попробовать бесплатно 7 дней" : "Try free 7 day trial"
@@ -36,7 +40,8 @@ export default function Home() {
 
     return (
         <MainLayout title={"Home page"}>
-            <Banner title={bannerSubtitle} btn={trialRequestBtnText} subtitle={bannerTitle} show={showModal} setShowModal={setShowModal}/>
+            <Banner show={showModal} setShowModal={setShowModal}/>
+            {/*<MainBanner show={showModal} setShowModal={setShowModal}/>*/}
             <MainFeatures/>
             <DemoMacbook/>
             <Category/>
@@ -51,26 +56,15 @@ export default function Home() {
             <ChecklistBanner text bgColor={violetHex}/>
             <Pricing show={showModal} setShowModal={setShowModal}/>
             {/*<VideoFeedbacks/>*/}
-            <Request setShowModal={setShowModal}/>
+            <Request/>
 
             <Modal
                 onClose={() => setShowModal(false)}
                 show={showModal}
             >
-                <SingleForm setShowModal={setShowModal}  setShowDoneModal={setShowDoneModal}/>
+                <SingleForm/>
 
             </Modal>
-
-            <Modal
-                onClose={()=>setShowDoneModal(false)}
-                show={showDoneModal}
-            >
-                <div className="content is has-text-centered-desktop">
-                    <Image src={check}/>
-                    <h5 className="tag is-success is-light is-large">Your application successfully sent!</h5>
-                </div>
-            </Modal>
-
         </MainLayout>
 
     )

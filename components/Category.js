@@ -88,10 +88,10 @@ export default function Category() {
 
             </ul>
 
-            <div className="container mt-6">
-                <div className="box">
+            <div style={{scrollMarginTop: 100}} id="category-block"  className="container mt-6">
+                <div  className="box">
                     <div className="content">
-                        <h1 className>{router.locale === 'en'? "Category" : router.locale === "ru" ? "Категории" : "Category"}</h1><br/>
+                        <h1  className>{router.locale === 'en'? "Category or who it suits" : router.locale === "ru" ? "Категории или кому это подходит" : "Category"}</h1><br/>
                         <div className="tabs is-centered">
                             <ul>
                                 <li className={toggleState === 1 ? "is-active violet-text" : ""}
