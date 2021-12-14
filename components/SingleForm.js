@@ -2,8 +2,8 @@ import axios from "axios";
 import {useState} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
-import en from "../locales/en";
-import ru from "../locales/ru";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 import Image from "next/image";
 import check from "../assets/img/QuaintLikelyFlyingfish-size_restricted.gif";
 import Modal from "./Modal";
@@ -25,10 +25,10 @@ export default function SingleForm(props) {
 
         const httpConfig = {
             headers: {
-                'Authorization': 'aba8203a396003b3cafb2d66e1a709c7'
+                'Authorization': 'kls72hdjxn93t69jag2b'
             }
         };
-        axios.post('https://stage.crm.codifylab.com/api/crm/leads/?org_id=17', values, httpConfig)
+        axios.post('https://crm.codifylab.com/api/crm/leads/?org_id=14', values, httpConfig)
             .then(res => {
                 if (res.status === 201) {
                     setShowDoneModal(true)
@@ -46,17 +46,17 @@ export default function SingleForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.name}</label>
                     <div className="control">
-                        <input className="input is-small is-centered" required
+                        <input className="input is-small is-centered is-rounded" required
                                onChange={e => change('first_name', e)}
                                type="text"
-                               placeholder="Adam Adamson"/>
+                               placeholder="John Doe"/>
                     </div>
                 </div>
 
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.phone}</label>
                     <div className="control">
-                        <input className="input is-small" type="text" required onChange={e => change('phone_number', e)}
+                        <input className="input is-small is-rounded" type="text" required onChange={e => change('phone', e)}
                                placeholder="123456789"/>
                     </div>
                 </div>
@@ -64,20 +64,20 @@ export default function SingleForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.email}</label>
                     <div className="control">
-                        <input className="input is-small" type="email" onChange={e => change('email', e)}
-                               placeholder="username@email.com"/>
+                        <input className="input is-small is-rounded" type="email" onChange={e => change('email', e)}
+                               placeholder="useremail@email.com"/>
                     </div>
                 </div>
 
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.company}</label>
                     <div className="control">
-                        <input className="input is-small" type="text" onChange={e => change('company_name', e)}
+                        <input className="input is-small is-rounded" type="text" onChange={e => change('company_name', e)}
                                placeholder="Company GmbH"/>
                     </div>
                 </div>
 
-                <div className="has-text-centered-desktop has-text-centered-mobile">
+                <div className="has-text-centered-desktop has-text-centered-mobile mt-6">
                     <button type="submit" style={{backgroundColor: "#7367F0", paddingLeft: 60, paddingRight: 60}}
                             className='button has-text-white has-text-weight-bold'>
                         {t.form.sendBtnText}
@@ -85,10 +85,11 @@ export default function SingleForm(props) {
                     <br/>
                     <Link href="privacy-policy">
                         <a className='violet-text is-small'>
-                            <u>    {t.form.politicsLabel}</u>
+                            <small>
+                                <u>{t.form.politicsLabel}</u>
+                            </small>
                         </a>
                     </Link>
-
                 </div>
             </form>
 

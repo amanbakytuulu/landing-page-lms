@@ -5,8 +5,8 @@ import fb from "../assets/svg/fb.svg"
 import tg from "../assets/svg/tg.svg"
 import whats from "../assets/svg/whasp.svg"
 import {useRouter} from "next/router";
-import en from "../locales/en";
-import ru from "../locales/ru";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 
 export default function Banner(props) {
     let router = useRouter()
@@ -38,20 +38,21 @@ export default function Banner(props) {
                                 <a href={t.banner.insta} target='_blank' rel="noreferrer">
                                     <Image src={insta}/>
                                 </a>
-                            </li >
+                            </li>
                             <li className="social-media-item zoomable">
-                                <a href={t.banner.facebook} target='_blank' rel="noreferrer">
-                                    <Image src={fb}/>
+                                <a href={t.banner.whatsapp} target='_blank' rel="noreferrer">
+                                    <Image src={whats}/>
                                 </a>
                             </li>
+
                             <li className="social-media-item zoomable">
                                 <a href={t.banner.telegram} target='_blank' rel="noreferrer">
                                     <Image src={tg}/>
                                 </a>
                             </li>
                             <li className="social-media-item zoomable">
-                                <a href={t.banner.whatsapp} target='_blank' rel="noreferrer">
-                                    <Image src={whats}/>
+                                <a href={t.banner.facebook} target='_blank' rel="noreferrer">
+                                    <Image src={fb}/>
                                 </a>
                             </li>
                         </ul>

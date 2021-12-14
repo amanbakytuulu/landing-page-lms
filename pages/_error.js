@@ -10,19 +10,21 @@ import ru from "../locales/ru/ru.js";
 export default function Custom404() {
     const router = useRouter()
     const {locale} = router;
-    const t = locale === 'en' ? en : ru;
+
     useEffect(() => {
-            if (!(location.pathname.startsWith("/en")) || (!(location.pathname.startsWith("/ru")))){
-                const locale = 'en';
-                router.push(router.asPath, {locale, scroll: false, shallow: true});
-            }
-            else if (location.pathname === "/_error") {
-                router.push("/", {locale, scroll: false, shallow: true});
-            }
-        }, []);
+        if (!(location.pathname.startsWith("/en"))){
+            const locale = 'en';
+            router.push(router.pathname, router.asPath, {locale, scroll: false});
+        }
+        else if (location.pathname === "/_error") {
+            router.push("/", router.asPath, {locale, scroll: false});
+        }
+    }, []);
+
+    const t = locale === 'en' ? en : ru;
 
     return (
-        <MainLayout title="Page not found">
+        <MainLayout title="Loading...">
             <div style={{margin: "0 auto"}} className="container is-centered is-center has-text-centered-desktop">
                 <div className="box">
                     <Image src={img404}/>

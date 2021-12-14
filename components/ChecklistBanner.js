@@ -1,8 +1,8 @@
 import Image from "next/image";
 import checklistWoman from "../assets/svg/Group.svg"
 import {useRouter} from "next/router";
-import en from "../locales/en";
-import ru from "../locales/ru";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 import {useState} from "react";
 import Modal from "./Modal";
 
@@ -34,7 +34,7 @@ export default function ChecklistBanner(props) {
                                     <div className="bubble"/>
                                     <div className="column">
                                         <p className="title">{t.checklist.title}</p>
-                                        <form action='checklist.pdf'>
+                                        <form target="_blank" action={router.locale === 'en' ? "en-new-checklist.pdf":"new-checklist.pdf"}>
                                             <button className="button is-danger is-center has-text-weight-bold">{t.checklist.btnText}</button>
                                         </form>
                                         <Modal show={showModal} onClose={() => setShowModal(false)}

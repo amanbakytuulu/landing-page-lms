@@ -54,7 +54,7 @@ const StyledModal = styled.div`
   width: 500px;
   height: 600px;
   border-radius: 15px;
-  padding: 15px;
+  padding: 40px;
 `;
 const StyledModalOverlay = styled.div`
   position: fixed;

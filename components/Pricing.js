@@ -2,8 +2,8 @@ import {useState} from "react";
 import Modal from "./Modal";
 import SingleForm from "./SingleForm";
 import {useRouter} from "next/router";
-import en from "../locales/en";
-import ru from "../locales/ru";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 
 export default function Pricing(props) {
     let router = useRouter()
@@ -33,9 +33,9 @@ export default function Pricing(props) {
                             </div>
                         </div>
 
-                        <div className="columns is-flex-mobile price-block-wrapper">
+                        <div className="columns is-flex-mobile block-wrapper">
                             <div className="column">
-                                <div className="price-block">
+                                <div className="price-block zoomable">
                                     <div className={toggleState ? "title title-active":"title"}>{t.pricing.small}</div>
                                     <span className="dollar">$</span> <span className="cost">{toggleState ? "288" : "29"}</span>/{toggleState ? t.pricing.year : t.pricing.month} <br/>
                                     <h6 className="subtitle is-6">{t.pricing.activeUsers}</h6>
@@ -47,7 +47,7 @@ export default function Pricing(props) {
                                 </div>
                             </div>
                             <div className="column">
-                                <div className="price-block">
+                                <div className="price-block zoomable">
                                     <div className={toggleState ? "title title-active":"title"}>{t.pricing.medium}</div>
                                     <span className="dollar">$</span><span className="cost">{toggleState ? "600" : "50"}</span>/{toggleState ? t.pricing.year : t.pricing.month} <br/>
                                     <h6 className="subtitle is-6">{t.pricing.activeUsers}</h6>
@@ -59,7 +59,7 @@ export default function Pricing(props) {
                                 </div>
                             </div>
                             <div className="column">
-                                <div className="price-block">
+                                <div className="price-block zoomable">
                                     <div className={toggleState ? "title title-active":"title"}>{t.pricing.large}</div>
                                     <span className="dollar">$</span><span className="cost">{toggleState ? "1188" : "99"}</span>/{toggleState ? t.pricing.year : t.pricing.month} <br/>
                                     <h6 className="subtitle is-6">{t.pricing.activeUsers}</h6>
@@ -71,7 +71,7 @@ export default function Pricing(props) {
                                 </div>
                             </div>
                             <div className="column">
-                                <div className="price-block">
+                                <div className="price-block zoomable">
                                     <div className={toggleState ? "title title-active":"title"}>{t.pricing.enterprise}</div>
                                     <span className="dollar">$</span><span className="cost">{toggleState ? "2388" : "199"}</span>/{toggleState ? t.pricing.year : t.pricing.month} <br/>
                                     <h6 className="subtitle is-6">{t.pricing.activeUsers}</h6>

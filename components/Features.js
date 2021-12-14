@@ -6,8 +6,8 @@ import customer from "../assets/svg/icons/customer.svg"
 import payments from "../assets/svg/icons/payments.svg"
 import database from "../assets/svg/icons/database.svg"
 import {useRouter} from "next/router";
-import en from "../locales/en";
-import ru from "../locales/ru";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 
 
 export default function Features() {

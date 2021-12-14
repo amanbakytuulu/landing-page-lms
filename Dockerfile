@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python2 && ln -sf python2 /usr/bin/python
 RUN python -m ensurepip
 RUN pip install --no-cache --upgrade pip setuptools
-RUN yarn install --frozen-lockfile
+RUN yarn install
 
 # Rebuild the source code only when needed
 FROM node:alpine AS builder

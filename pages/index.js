@@ -12,18 +12,20 @@ import Request from "../components/Request";
 import {useState} from "react";
 import Modal from "../components/Modal";
 import SingleForm from "../components/SingleForm";
-import Image from "next/image";
-import check from "../assets/img/QuaintLikelyFlyingfish-size_restricted.gif";
-import en from '/locales/en';
-import ru from '/locales/ru';
-import MainBanner from "../components/MainBanner";
-import VideoFeedbacks from "../components/VideoFeebacks";
+import en from '/locales/en/en';
+import ru from '/locales/ru/ru';
+import Feedbacks from "../components/Feedbacks";
 
 export default function HomePage() {
     const violetHex = "#7367F0"
     let router = useRouter()
     const { locale } = router;
     const t = locale === 'en' ? en : ru;
+
+
+    let title =
+        router.locale === "en" ? "Home page" :
+        router.locale === "ru" ? "Главная" : "Home page"
 
     let trialBtnText = router.locale === "ru"? "Попробуй бесплатный период прямо сейчас!" : "Try free trial now!"
     let trialRequestBtnText = router.locale === "ru"? "Попробовать бесплатно 7 дней" : "Try free 7 day trial"
@@ -39,9 +41,8 @@ export default function HomePage() {
     const [showDoneModal, setShowDoneModal] = useState(false)
 
     return (
-        <MainLayout title={"Home page"}>
+        <MainLayout title={title}>
             <Banner show={showModal} setShowModal={setShowModal}/>
-            {/*<MainBanner show={showModal} setShowModal={setShowModal}/>*/}
             <MainFeatures/>
             <DemoMacbook/>
             <Category/>
@@ -51,21 +52,19 @@ export default function HomePage() {
                 bgColor={violetHex}
                 subtitle={bannerSubtitle}
                 btnUrl={"google.com"}
-                btnText={trialBtnText} />
+                btnText={trialBtnText}
+            />
             <Features/>
             <ChecklistBanner text bgColor={violetHex}/>
             <Pricing show={showModal} setShowModal={setShowModal}/>
-            {/*<VideoFeedbacks/>*/}
+            {/*<Feedbacks/>*/}
             <Request/>
-
             <Modal
                 onClose={() => setShowModal(false)}
                 show={showModal}
-            >
-                <SingleForm/>
-
+                >
+                    <SingleForm/>
             </Modal>
         </MainLayout>
-
     )
 }

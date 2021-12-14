@@ -1,7 +1,7 @@
 import SingleForm from "./SingleForm";
 import {useRouter} from "next/router";
-import en from "../locales/en";
-import ru from "../locales/ru";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 
 export default function Request(props) {
     let router = useRouter()

@@ -5,8 +5,8 @@ import fb from "../assets/svg/fb.svg"
 import tg from "../assets/svg/tg.svg"
 import whats from "../assets/svg/whasp.svg"
 import {useRouter} from "next/router";
-import en from "../locales/en";
-import ru from "../locales/ru";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 
 export default function MainBanner(props) {
     let router = useRouter()

@@ -1,12 +1,19 @@
 module.exports = {
-    i18n: {
-        locales: ['en', 'ru'],
-        defaultLocale: 'en',
+    i18n:{
+        locales:["en", "ru"],
+        defaultLocale: "en",
+        localeDetection: true
     },
-    exportPathMap: async function (
-    ) {
-        return {
-            '/': {page: '/'},
+    webpack: (config, { isServer }) => {
+        if (!isServer) {
+            config.resolve.fallback = {
+                fs: false,
+                stream: false,
+                path: false,
+                crypto: false
+            }
         }
+
+        return config;
     }
-};
+}

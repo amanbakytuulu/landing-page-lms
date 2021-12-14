@@ -2,8 +2,8 @@ import Head from "next/head";
 import {useRouter} from "next/router";
 import Link from "next/link";
 import Header from "./Header";
-import en from "../locales/en.js";
-import ru from "../locales/ru.js";
+import en from "../locales/en/en.js";
+import ru from "../locales/ru/ru.js";
 
 export function MainLayout({children, title}) {
     let router = useRouter()
@@ -12,10 +12,11 @@ export function MainLayout({children, title}) {
     return (
         <>
             <Head>
-                <link rel="icon" href="/assets/img/logo.png"/>
+                <link rel="icon" href="/aperture.svg"/>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
                 <title>{title} | Codify CRM</title>
                 <meta charSet="utf-8"/>
+                <script src="//code-ya.jivosite.com/widget/tNypJU48Vz" async></script>
             </Head>
             <Header/>
             <main>
@@ -32,10 +33,10 @@ export function MainLayout({children, title}) {
             <footer style={{marginTop: 70}} className="footer has-background-grey-dark has-text-grey">
                     <div className="content has-text-centered-desktop has-text-centered-mobile">
                         <h1 className="has-text-white">Codify LMS CRM</h1>
-                        <span><a className="has-text-grey">Договор оферта</a></span> •
-                        <span className="ml-1"><a className="has-text-grey">Политика конфедициальности</a></span>
+                        <span className="ml-1"><Link href="/privacy-policy"><a className="has-text-grey">{t.privacyPolicy.title}</a></Link></span>
                         <p>Codify LMS © 2020-2021</p>
                     </div>
+
             </footer>
         </>
     )
