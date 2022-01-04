@@ -15,6 +15,9 @@ import SingleForm from "../components/SingleForm";
 import en from '/locales/en/en';
 import ru from '/locales/ru/ru';
 import Feedbacks from "../components/Feedbacks";
+import Advantages from "../components/Advantages";
+import QuestionAnswer from "../components/QuestionAnswer";
+import Stats from "../components/Stats";
 
 export default function HomePage() {
     const violetHex = "#7367F0"
@@ -27,12 +30,10 @@ export default function HomePage() {
         router.locale === "en" ? "Home page" :
         router.locale === "ru" ? "Главная" : "Home page"
 
-    let trialBtnText = router.locale === "ru"? "Попробуй бесплатный период прямо сейчас!" : "Try free trial now!"
+    let trialBtnText = router.locale === "ru"? "Запишись на консультацию прямо сейчас, и получи индвидуальную скидку!" : "Sign up for a consultation right now and get an individual discount!"
     let trialRequestBtnText = router.locale === "ru"? "Попробовать бесплатно 7 дней" : "Try free 7 day trial"
 
-    let bannerTitle =
-        router.locale === 'en' ? 'Now 70% Off for 3 Months' :
-        router.locale === 'ru' ? "Теперь 70% скидки на 3 месяца" : "Now 70% Off for 3 Months"
+
     let bannerSubtitle =
         router.locale === 'en' ? 'Accounting software built for owners' :
         router.locale === 'ru' ? "Бухгалтерское программное обеспечение, созданное для владельцев" : "Now 70% Off for 3 Months"
@@ -46,18 +47,20 @@ export default function HomePage() {
             <MainFeatures/>
             <DemoMacbook/>
             <Category/>
+            <Stats/>
             <DynamicBanner
                 show={showModal} setShowModal={setShowModal}
-                title={bannerTitle}
                 bgColor={violetHex}
                 subtitle={bannerSubtitle}
                 btnUrl={"google.com"}
                 btnText={trialBtnText}
             />
             <Features/>
+            <Advantages/>
+            <Feedbacks/>
             <ChecklistBanner text bgColor={violetHex}/>
+            <QuestionAnswer/>
             <Pricing show={showModal} setShowModal={setShowModal}/>
-            {/*<Feedbacks/>*/}
             <Request/>
             <Modal
                 onClose={() => setShowModal(false)}

@@ -32,32 +32,6 @@ export default function Banner(props) {
                             <Image src={laptop}/>
                         </div>
                     </div>
-                    <div className="social-media-links">
-                        <ul>
-                            <li className="social-media-item zoomable">
-                                <a href={t.banner.insta} target='_blank' rel="noreferrer">
-                                    <Image src={insta}/>
-                                </a>
-                            </li>
-                            <li className="social-media-item zoomable">
-                                <a href={t.banner.whatsapp} target='_blank' rel="noreferrer">
-                                    <Image src={whats}/>
-                                </a>
-                            </li>
-
-                            <li className="social-media-item zoomable">
-                                <a href={t.banner.telegram} target='_blank' rel="noreferrer">
-                                    <Image src={tg}/>
-                                </a>
-                            </li>
-                            <li className="social-media-item zoomable">
-                                <a href={t.banner.facebook} target='_blank' rel="noreferrer">
-                                    <Image src={fb}/>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
                 </div>
             </div>
         </div>

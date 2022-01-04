@@ -1,16 +1,18 @@
-import {useEffect, useState} from "react";
-import SingleForm from "./SingleForm";
-import Modal from "./Modal";
+import {useRouter} from "next/router";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 
 export default function DynamicBanner(props) {
+    let router = useRouter()
+    const { locale } = router;
+    const t = locale === 'en' ? en : ru;
     return (
         <>
-
                 <div style={{cursor:"pointer"}} className="container mt-6" onClick={()=> props.setShowModal(true)}>
-                    <div className="context">
+                    <div className="context mt-6">
                         <div className="content is-centered has-text-centered-desktop has-text-centered-mobile">
-                            <h2 className="has-text-white mt-6">{props.title}</h2>
-                            <h1 className="has-text-white mt-6">{props.btnText}</h1>
+                            <h3 className="has-text-white mt-6">{props.btnText}</h3>
+                            <div className="button is-danger has-text-weight-semibold">{t.sign}</div>
                         </div>
                     </div>
 

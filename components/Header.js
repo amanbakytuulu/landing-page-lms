@@ -11,6 +11,10 @@ import rus from "../assets/img/rus1.png"
 import React, {useState} from "react";
 import closeIcon from "../assets/img/XcloseImage.png";
 import aperture from "../public/aperture.svg"
+import insta from "../assets/svg/insta.svg";
+import whats from "../assets/svg/whasp.svg";
+import tg from "../assets/svg/tg.svg";
+import fb from "../assets/svg/fb.svg";
 
 export default function Header() {
     let router = useRouter()
@@ -98,6 +102,26 @@ export default function Header() {
                         </div>
                     </div>
                     <div className="navbar-end">
+                        <div className="navbar-item">
+                            <a href={t.banner.insta} target='_blank' rel="noreferrer">
+                                <Image src={insta}/>
+                            </a>
+                        </div>
+                        <div className="navbar-item">
+                            <a href={t.banner.whatsapp} target='_blank' rel="noreferrer">
+                                <Image src={whats}/>
+                            </a>
+                        </div>
+                        <div className="navbar-item">
+                            <a href={t.banner.telegram} target='_blank' rel="noreferrer">
+                                <Image src={tg}/>
+                            </a>
+                        </div>
+                        <div className="navbar-item">
+                            <a href={t.banner.facebook} target='_blank' rel="noreferrer">
+                                <Image src={fb}/>
+                            </a>
+                        </div>
                         <div className="navbar-item has-dropdown is-hoverable lang-dropdown">
                             <a className="navbar-link is-arrowless">
                                 <Image className="language_img" src={locale === "en" ? usa : locale === "ru" ? rus : en}
@@ -138,17 +162,17 @@ export default function Header() {
                         </li>
                         <li>
                             <Link href="/#category-block">
-                            <a onClick={() => setAsideShow(false)}>{category}</a>
+                                <a onClick={() => setAsideShow(false)}>{category}</a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/#features-block">
-                            <a onClick={() => setAsideShow(false)}>{features}</a>
+                                <a onClick={() => setAsideShow(false)}>{features}</a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/#pricing-block">
-                            <a onClick={() => setAsideShow(false)}>{price}</a>
+                                <a onClick={() => setAsideShow(false)}>{price}</a>
                             </Link>
                         </li>
                         <li>&nbsp;</li>
@@ -174,6 +198,28 @@ export default function Header() {
                                     <div id="ru" onClick={changeLanguage} style={{marginLeft: 10}}>Русский</div>
                                 </a>
                             </div>
+                        </li>
+                    </ul>
+                    <ul className="menu-list is-inline-flex">
+                        <li>
+                            <a href={t.banner.insta} target='_blank' rel="noreferrer">
+                                <Image src={insta}/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href={t.banner.whatsapp} target='_blank' rel="noreferrer">
+                                <Image src={whats}/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href={t.banner.telegram} target='_blank' rel="noreferrer">
+                                <Image src={tg}/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href={t.banner.facebook} target='_blank' rel="noreferrer">
+                                <Image src={fb}/>
+                            </a>
                         </li>
                     </ul>
 

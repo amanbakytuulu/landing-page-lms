@@ -1,12 +1,19 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('san-serif');
+}
 html, body {
   overflow-x: hidden;
   background-color: rgba(231, 234, 243, 0.13);
+  font-family: 'Montserrat', sans-serif;
   scroll-behavior: smooth;
   nav{
     background-color: red;
   }
 }
-
+button{
+  font-family: 'Montserrat', sans-serif;
+}
 .rounded{
   border-radius: 30px;
 }
@@ -121,11 +128,7 @@ html, body {
           height: 400px;
         }
         @media (max-width: 980px) {
-          width: 350px;
-          height: 350px;
-          margin: 0 auto;
-          top: -350px;
-          left: -30px;
+          display: none;
         }
 
         //background: linear-gradient(219.94deg,
@@ -228,6 +231,9 @@ html, body {
   color: #7367F0 !important;
 }
 
+.is_18{
+  font-size: 18px;
+}
 
 .demo-block {
   margin-top: 70px;
@@ -736,4 +742,15 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
 
 .dont-show{
   display: none;
+}
+
+#advantages-block{
+  @media (max-width: 980px) {
+    overflow-x: scroll;
+  }
+}
+
+.stats{
+  font-size: 34px;
+
 }

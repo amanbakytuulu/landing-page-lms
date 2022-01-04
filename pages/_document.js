@@ -1,21 +1,23 @@
-import Document, { Html, Head, Main, NextScript } from "next/dist/pages/_document";
+import Document, {Html, Head, Main, NextScript} from "next/dist/pages/_document";
 
 class MainDocument extends Document {
     static async getInitialProps(ctx) {
         const initialProps = await Document.getInitialProps(ctx);
-        return { ...initialProps };
+        return {...initialProps};
     }
 
     render() {
         return (
             <Html>
                 <Head>
-                    <link rel="icon" href="/assets/img/logo.png"/>
+                    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+                    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
                 </Head>
 
                 <body>
-                <Main />
-                <NextScript />
+                <Main/>
+                <NextScript/>
                 {/*Below we add the modal wrapper*/}
                 <div id="modal-root"></div>
                 </body>

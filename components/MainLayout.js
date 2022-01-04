@@ -16,7 +16,9 @@ export function MainLayout({children, title}) {
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
                 <title>{title} | Codify CRM</title>
                 <meta charSet="utf-8"/>
-                <script src="//code-ya.jivosite.com/widget/tNypJU48Vz" async></script>
+                <script src="//code-ya.jivosite.com/widget/tNypJU48Vz" async/>
+                {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+                <script src="https://kit.fontawesome.com/e4dd657689.js" crossOrigin="anonymous"/>
             </Head>
             <Header/>
             <main>

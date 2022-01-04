@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
+    sign: "Sign up",
+    callback:"Order a callback",
     goBackBtnText: "Go back home",
     privacyPolicy: {
         title: "Privacy Policy",
@@ -7,7 +9,7 @@ export default {
     banner: {
         title: "Learning Management System for education centers",
         subtitle: "Our company will create a step-by-step system for you to go digital. What's more, we'll help you through the entire process!",
-        btnText: "Try free 7 day trial",
+        btnText: "Try free 14 day trial",
         insta: "https://instagram.com/codify_lms",
         facebook: "https://www.facebook.com/codify.lms/",
         whatsapp: "http://wa.me/+996223333480",
@@ -20,7 +22,11 @@ export default {
     },
     pricing: {
         title: "Tariffs",
+        saving: 'saving',
+        price: "Price",
         month: "month",
+        months: "months",
+        monthsRu: "months",
         year: "year",
         small: "Small",
         medium: "Medium",
@@ -95,7 +101,7 @@ export default {
         g4_2: "4.2. The Operator also has the right to send notifications to the User about new products and services, special offers and various events. The User can always refuse to receive information messages by sending an email to the Operator at the email address lms@codifylab.com marked «Opt-out of notifications about new products and services and special offers»",
         g4_3: "4.3. Depersonalized User data collected through Internet statistics services is used to collect information about User actions on the site, improve the quality of the site and its content.",
 
-        g5 :  "5. Legal grounds for processing personal data",
+        g5: "5. Legal grounds for processing personal data",
         g5_1: "5.1. The Operator processes the User's personal data only if they are filled in and / or sent by the User independently through special forms located on the website http://crm.codifylab.com/. By filling out the appropriate forms and / or sending your personal data to the Operator, the User agrees to this Policy.",
         g5_2: "5.2. The Operator processes depersonalized data about the User if this is allowed in the User's browser settings (saving cookies and using JavaScript technology are enabled).",
 
@@ -124,7 +130,54 @@ export default {
         politicsLabel: "By submitting an application you agree with privacy policy",
         successText: "Your application has been successfully submitted! \n Our specialists will get in touch with you in the near future"
     },
-    fb:{
-        title: "Feedbacks"
-    }
+    fb: {
+        title: "Feedbacks from our partners",
+        academyTitle: 'Codify Academy',
+        academyZhyrgal: "Zhyrgal Karasartova, CEO",
+        academyText: 'Due to the introduction of Codify LMS systems in our Academy, the following have improved: management of all existing and graduating groups; automation of mentors and students; automation of sales processes and financial accounting; academy teachers can track progress, upload materials and check homework from anywhere at any time.',
+
+        highSchool98Title: 'PLS #98',
+        highSchool98Victor: "Victor Vladimirovich, teacher",
+        highSchool98text: "The Codify platform has solved quite a lot of problems that we had in online learning at the moment. We have not found suitable resources where we could upload our materials. The platform is convenient because there are aspects such as attendance records, ratings, rating.",
+
+        beFreeTitle: 'English courses Be Free',
+        beFreeShirin: 'Shirin Erkinbekova, director',
+        beFreeText: 'Before your platform, we tried to use various CPM systems, but something always didn\'t suit us. We have intensive courses at the center and needed a program in which you fix everything without spending a lot of effort. We mainly worked on excel. There was a haphazardness. Your platform has helped us organize everything. Our teachers are also comfortable with downloading the program and working with tests.',
+    },
+    a8s: {
+        title: 'Advantages',
+        first: 'Real-time technical support',
+        second: 'Tracking payments and debts of each student',
+        third: 'Tracking teachers salaries',
+        fourth: 'Management coursework',
+        fives: 'Office management',
+        seventh: 'Multilingualism',
+        eighth: 'Convenient sales funnel and reports',
+        nines: 'Organization statistics and analytics',
+        tens: 'Student projects',
+        elevens: 'Individual courses',
+        twelves: 'Public application forms',
+        thirteens: 'Managing visits'
+    },
+    qa: {
+        title: "Frequently asked questions",
+        work: "How do we work?",
+        workAns: "Codify LMS offers a 7-day trial period. After you submit your application, we will conduct a demo presentation for you. We tell and show you about our system. Further, after switching to the test period, you are given access to the system. During the test period, we provide you with: Training and implementation for your staff, and you will always have a technical support team that will help you with any problem that has arisen.",
+        cost:"The cost of the system?",
+        costAns:"Our tariffs differ only in the number of active users. Full functionality is available at each tariff - all sections and modules of the system. The minimum payment for one month is $29. If you pay the tariff immediately for six months or a year, you will receive more than 15% discount.",
+        active:"Who are the active users?",
+        activeAns:"A user with a Personal Account (Administrator, Teacher, Student) and they have username and password, they are considered active users. Those whom you import, only their data and they do not have their own Personal Account, are not considered active (they have the status \"in the database\").",
+        role:"What Roles do we have in the system?",
+        roleAns:"There are 3 roles in our system: Administrator, Teacher and Student. The Administrator has access to CRM and LMS. He can issue various rights and permissions for employees (roles of a salesperson, accountant, manager, technical support employee, analyst, marketer, sales manager, etc.). Teachers have access to the LMS. He sees the groups in which he teaches, downloads the curriculum, marks attendance and sees the progress of each student in the group. The student also has access to the LMS. He sees in the groups to which he is registered and sees all the data that the teacher has uploaded. The student also has the opportunity to pay in the Personal Account.",
+        staff:"Is it possible to conduct training sessions for staff?",
+        staffAns:"Yes. You will always have a technical support team attached to you, which can conduct various trainings on using the system.",
+        implement:"How long does it take to implement the system?",
+        implementAns:"Your organization will need from 1 to 2 weeks. Depending on the number of staff and involvement in the process. You will always have the opportunity to ask a question and solve a problem with our technical support team."
+
+    },
+stats:{
+        activeUsers:"active users",
+        partners:"partners",
+        courses:"success finished courses",
+}
 }

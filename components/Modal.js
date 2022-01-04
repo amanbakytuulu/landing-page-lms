@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import closeIcon from "../assets/img/XcloseImage.png"
@@ -21,7 +21,7 @@ const Modal = ({ show, onClose, children, title }) => {
             <StyledModal>
                 <StyledModalHeader>
                     <a href="#" onClick={handleCloseClick}>
-                        <Image src={closeIcon}/>
+                        <Image src={closeIcon} alt=''/>
                     </a>
                 </StyledModalHeader>
                 <StyledModalBody>{children}</StyledModalBody>
