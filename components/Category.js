@@ -107,9 +107,6 @@ export default function Category() {
                             <div className="column">
                                 <div dangerouslySetInnerHTML={{__html: content}}/>
                             </div>
-                            <div className="column">
-
-                            </div>
                         </div>
                     </div>
                 </div>

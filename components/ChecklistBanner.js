@@ -34,7 +34,7 @@ export default function ChecklistBanner(props) {
                                     <div className="bubble"/>
                                     <div className="column">
                                         <p className="title">{t.checklist.title}</p>
-                                        <form target="_blank" action={router.locale === 'en' ? "en-new-checklist.pdf":"new-checklist.pdf"}>
+                                        <form target="_blank" action={router.locale === 'en' ? "en_checklist.pdf":"ru_checklist.pdf"}>
                                             <button className="button is-danger is-center has-text-weight-bold">{t.checklist.btnText}</button>
                                         </form>
                                         <Modal show={showModal} onClose={() => setShowModal(false)}

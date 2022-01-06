@@ -30,7 +30,7 @@ export default function HomePage() {
         router.locale === "en" ? "Home page" :
         router.locale === "ru" ? "Главная" : "Home page"
 
-    let trialBtnText = router.locale === "ru"? "Запишись на консультацию прямо сейчас, и получи индвидуальную скидку!" : "Sign up for a consultation right now and get an individual discount!"
+    let trialBtnText = router.locale === "ru"? "Запишись на консультацию прямо сейчас, и получи индивидуальную скидку!" : "Sign up for a consultation right now and get an individual discount!"
     let trialRequestBtnText = router.locale === "ru"? "Попробовать бесплатно 7 дней" : "Try free 7 day trial"
 
 

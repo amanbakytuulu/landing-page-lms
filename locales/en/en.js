@@ -162,7 +162,7 @@ export default {
     qa: {
         title: "Frequently asked questions",
         work: "How do we work?",
-        workAns: "Codify LMS offers a 7-day trial period. After you submit your application, we will conduct a demo presentation for you. We tell and show you about our system. Further, after switching to the test period, you are given access to the system. During the test period, we provide you with: Training and implementation for your staff, and you will always have a technical support team that will help you with any problem that has arisen.",
+        workAns: "Codify LMS offers a 14-day trial period. After you submit your application, we will conduct a demo presentation for you. We tell and show you about our system. Further, after switching to the test period, you are given access to the system. During the test period, we provide you with: Training and implementation for your staff, and you will always have a technical support team that will help you with any problem that has arisen.",
         cost:"The cost of the system?",
         costAns:"Our tariffs differ only in the number of active users. Full functionality is available at each tariff - all sections and modules of the system. The minimum payment for one month is $29. If you pay the tariff immediately for six months or a year, you will receive more than 15% discount.",
         active:"Who are the active users?",
