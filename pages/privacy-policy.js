@@ -9,7 +9,7 @@ export default function PrivacyPolicy(props) {
     const t = locale === 'en' ? en : ru;
     return (
         <MainLayout title={t.privacyContent.title}>
-            <div className="container">
+            <div className="container mb-6">
                 <div className="box">
                     <div className="content">
                         <h1>{t.privacyContent.title}</h1>

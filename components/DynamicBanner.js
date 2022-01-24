@@ -12,7 +12,7 @@ export default function DynamicBanner(props) {
                     <div className="context mt-6">
                         <div className="content is-centered has-text-centered-desktop has-text-centered-mobile">
                             <h3 className="has-text-white mt-6">{props.btnText}</h3>
-                            <div className="button is-danger has-text-weight-semibold">{t.sign}</div>
+                            <div className="button demo-btn is-danger has-text-weight-semibold">{t.sign}</div>
                         </div>
                     </div>
 

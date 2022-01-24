@@ -20,7 +20,7 @@ export default function Banner(props) {
                     <div className="side description">
                         <h1>{t.banner.title}</h1>
                         <p>{t.banner.subtitle}</p>
-                        <button className="btn-grad" onClick={() => props.setShowModal(true)}>
+                        <button className="btn-grad demo-btn" onClick={() => props.setShowModal(true)}>
                             <label htmlFor="" className="label has-text-weight-semibold has-text-white">{t.banner.btnText}</label>
                         </button>
 

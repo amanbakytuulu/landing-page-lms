@@ -23,7 +23,7 @@ export default function Custom404() {
 
     return (
         <MainLayout title="Page not found">
-            <div style={{margin: "0 auto"}} className="container is-centered is-center has-text-centered-desktop">
+            <div style={{margin: "0 auto"}} className="container mb-6 is-centered is-center has-text-centered-desktop">
                 <div className="box">
                     <Image src={img404}/>
                     <Link href="/">

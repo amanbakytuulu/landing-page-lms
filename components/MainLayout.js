@@ -32,7 +32,7 @@ export function MainLayout({children, title}) {
               }
             `}</style>
 
-            <footer style={{marginTop: 70}} className="footer has-background-grey-dark has-text-grey">
+            <footer className="footer has-background-grey-dark has-text-grey">
                     <div className="content has-text-centered-desktop has-text-centered-mobile">
                         <h1 className="has-text-white">Codify LMS CRM</h1>
                         <span className="ml-1"><Link href="/privacy-policy"><a className="has-text-grey">{t.privacyPolicy.title}</a></Link></span>

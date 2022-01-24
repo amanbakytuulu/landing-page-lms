@@ -31,14 +31,12 @@ export default function SingleForm(props) {
         axios.post('https://crm.codifylab.com/api/crm/leads/?org_id=14', values, httpConfig)
             .then(res => {
                 if (res.status === 201) {
-                    setShowDoneModal(true)
+                    router.push('/thanks_demo')
                 }
             })
             .catch(function (error) {
                 console.log('error', error);
             });
-
-
     }
     return (
         <>

@@ -151,8 +151,8 @@ export default function Pricing(props) {
                         {updateTableData()}
                     </div>
                     <div className="columns is-centered">
-                            <button className="btn-grad" onClick={() => props.setShowModal(true)}>
-                                <label className="label has-text-weight-semibold has-text-white">{t.callback}</label>
+                            <button className="btn-grad demo-btn" onClick={() => props.setShowModal(true)}>
+                                <label className="label dropdown has-text-weight-semibold has-text-white">{t.callback}</label>
                             </button>
                     </div>
                 </div>

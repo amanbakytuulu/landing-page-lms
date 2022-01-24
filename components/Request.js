@@ -10,7 +10,7 @@ export default function Request(props) {
 
     return (
         <>
-            <div className="container mt-6">
+            <div className="container mt-6 mb-6">
                 <div className="columns">
                     <div className="column">
                         <div className="content has-text-left">
