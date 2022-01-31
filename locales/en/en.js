@@ -1,7 +1,8 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    sign: "Sign up",
-    callback:"Order a callback",
+    sign: "Sign up for a demo",
+    callback: "Order a callback",
+    testDriveStart:"Start test-drive",
     goBackBtnText: "Go back home",
     privacyPolicy: {
         title: "Privacy Policy",
@@ -163,21 +164,37 @@ export default {
         title: "Frequently asked questions",
         work: "How do we work?",
         workAns: "Codify LMS offers a 14-day trial period. After you submit your application, we will conduct a demo presentation for you. We tell and show you about our system. Further, after switching to the test period, you are given access to the system. During the test period, we provide you with: Training and implementation for your staff, and you will always have a technical support team that will help you with any problem that has arisen.",
-        cost:"The cost of the system?",
-        costAns:"Our tariffs differ only in the number of active users. Full functionality is available at each tariff - all sections and modules of the system. The minimum payment for one month is $29. If you pay the tariff immediately for six months or a year, you will receive more than 15% discount.",
-        active:"Who are the active users?",
-        activeAns:"A user with a Personal Account (Administrator, Teacher, Student) and they have username and password, they are considered active users. Those whom you import, only their data and they do not have their own Personal Account, are not considered active (they have the status \"in the database\").",
-        role:"What Roles do we have in the system?",
-        roleAns:"There are 3 roles in our system: Administrator, Teacher and Student. The Administrator has access to CRM and LMS. He can issue various rights and permissions for employees (roles of a salesperson, accountant, manager, technical support employee, analyst, marketer, sales manager, etc.). Teachers have access to the LMS. He sees the groups in which he teaches, downloads the curriculum, marks attendance and sees the progress of each student in the group. The student also has access to the LMS. He sees in the groups to which he is registered and sees all the data that the teacher has uploaded. The student also has the opportunity to pay in the Personal Account.",
-        staff:"Is it possible to conduct training sessions for staff?",
-        staffAns:"Yes. You will always have a technical support team attached to you, which can conduct various trainings on using the system.",
-        implement:"How long does it take to implement the system?",
-        implementAns:"Your organization will need from 1 to 2 weeks. Depending on the number of staff and involvement in the process. You will always have the opportunity to ask a question and solve a problem with our technical support team."
+        cost: "The cost of the system?",
+        costAns: "Our tariffs differ only in the number of active users. Full functionality is available at each tariff - all sections and modules of the system. The minimum payment for one month is $29. If you pay the tariff immediately for six months or a year, you will receive more than 15% discount.",
+        active: "Who are the active users?",
+        activeAns: "A user with a Personal Account (Administrator, Teacher, Student) and they have username and password, they are considered active users. Those whom you import, only their data and they do not have their own Personal Account, are not considered active (they have the status \"in the database\").",
+        role: "What Roles do we have in the system?",
+        roleAns: "There are 3 roles in our system: Administrator, Teacher and Student. The Administrator has access to CRM and LMS. He can issue various rights and permissions for employees (roles of a salesperson, accountant, manager, technical support employee, analyst, marketer, sales manager, etc.). Teachers have access to the LMS. He sees the groups in which he teaches, downloads the curriculum, marks attendance and sees the progress of each student in the group. The student also has access to the LMS. He sees in the groups to which he is registered and sees all the data that the teacher has uploaded. The student also has the opportunity to pay in the Personal Account.",
+        staff: "Is it possible to conduct training sessions for staff?",
+        staffAns: "Yes. You will always have a technical support team attached to you, which can conduct various trainings on using the system.",
+        implement: "How long does it take to implement the system?",
+        implementAns: "Your organization will need from 1 to 2 weeks. Depending on the number of staff and involvement in the process. You will always have the opportunity to ask a question and solve a problem with our technical support team."
 
     },
-stats:{
-        activeUsers:"active users",
-        partners:"partners",
-        courses:"success finished courses",
-}
+    stats: {
+        activeUsers: "active users",
+        partners: "partners",
+        courses: "success finished courses",
+    },
+    test_drive:{
+        title: "Test drive",
+        bannerTitle:"Try the free 14-day version of the All-in-One CRM and LMS platform for educational centers right now!",
+        bannerSubtitle:"Get access to the system in seconds by filling out the form!",
+        testDriveForm:{
+            orgName:"Organization name",
+            type:"Organization type",
+            fullName:"Full name",
+            email:"Email",
+            phone:"Phone number",
+
+        }
+    },
+    thanks_test_drive:{
+        title:"Congratulations, your organization has been created! Credentials and instructions for use have been sent to your email.",
+    },
 }

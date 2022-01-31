@@ -21,7 +21,10 @@ export default function Banner(props) {
                         <h1>{t.banner.title}</h1>
                         <p>{t.banner.subtitle}</p>
                         <button className="btn-grad demo-btn" onClick={() => props.setShowModal(true)}>
-                            <label htmlFor="" className="label has-text-weight-semibold has-text-white">{t.banner.btnText}</label>
+                            <label htmlFor="" className="label has-text-weight-semibold has-text-white">{t.sign}</label>
+                        </button>
+                        <button className="btn-orange-grad mt-3 test-drive-btn" onClick={() => router.push('/test_drive')}>
+                            <label htmlFor="" className="label has-text-weight-semibold has-text-white">{t.testDriveStart}</label>
                         </button>
 
                     </div>

@@ -202,11 +202,9 @@ button{
   box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
   outline: none;
   transition: .3s;
-  animation: shadow-pulse 2s infinite;
   border-radius: 4px;
   width: 100%;
   max-width: 346px;
-
 
   @media (max-width: 560px) {
     padding: 8px 0;
@@ -221,6 +219,18 @@ button{
   img {
     max-height: 40px;
   }
+}
+.test-drive-btn {
+  color: #ffffff;
+  padding: 14px 64px;
+  border: 1px solid #e7eaf3;
+  box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+  outline: none;
+  transition: .3s;
+  text-align: center;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 346px;
 }
 
 .container {
@@ -390,8 +400,6 @@ button{
 
 .btn-grad {
   font-family: 'Montserrat', sans-serif;
-  margin: 10px;
-  padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -399,7 +407,30 @@ button{
   color: white;
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
-  display: block;
+  border: none;
+  @media (max-width: 970px) {
+    display: inline-block;
+  }
+  label{
+    cursor: pointer;
+  }
+}
+.btn-orange-grad {
+  background-image: linear-gradient(to right, rgb(255, 153, 0), rgb(255, 153, 0), rgb(255, 153, 0),
+          rgba(255, 183, 0, 0.8), rgb(252, 194, 50));
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.btn-orange-grad {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
   border: none;
   @media (max-width: 970px) {
     display: inline-block;
@@ -414,6 +445,12 @@ button{
   cursor: pointer;
   background-position: right center; /* change the direction of the change here */
   color: #fff;
+}
+
+.btn-orange-grad:hover {
+  cursor: pointer;
+  background-position: right center; /* change the direction of the change here */
+  color: #ffffff;
 }
 
 .language_block {
@@ -525,7 +562,7 @@ button{
   left: 10%;
   width: 20px;
   height: 20px;
-  background: rgb(221, 0, 255);
+  background: rgb(115, 103, 240);
   animation-delay: 2s;
   animation-duration: 12s;
 }
@@ -922,5 +959,37 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
     width: 47px;
     right: 8px;
     top: 38px;
+  }
+}
+
+.decor-ellipse {
+  right: -700px;
+  top: -400px;
+  position: absolute;
+  border-radius: 50%;
+  width: 1200px;
+  height: 1200px;
+  z-index: -10;
+  background: linear-gradient(-45deg, #ff8e22, rgba(255, 159, 67, 0.88), rgba(202, 67, 255, 0.68), rgb(115, 103, 240));
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+
+  @media (max-width: 920px) {
+    width: 400px;
+    height: 400px;
+  }
+  @media (max-width: 980px) {
+    display: none;
   }
 }

@@ -15,8 +15,10 @@ import insta from "../assets/svg/insta.svg";
 import whats from "../assets/svg/whasp.svg";
 import tg from "../assets/svg/tg.svg";
 import fb from "../assets/svg/fb.svg";
+import SingleForm from "./SingleForm";
+import Modal from "./Modal";
 
-export default function Header() {
+export default function Header(...props) {
     let router = useRouter()
     const {locale} = router;
     const t = locale === 'en' ? en : ru;
@@ -36,10 +38,21 @@ export default function Header() {
         router.push(router.pathname, router.asPath, {locale, scroll: false});
         setAsideShow(false)
     };
+    const [showModal, setShowModal] = useState(false)
 
+    const showModalHideMenu = (e) => {
+        setShowModal(true)
+        setAsideShow(false)
+    }
 
     return (
         <>
+            <Modal
+                onClose={() => setShowModal(false)}
+                show={showModal}
+            >
+                <SingleForm/>
+            </Modal>
             <style jsx>
                 {`
                   .navbar {
@@ -102,6 +115,20 @@ export default function Header() {
                         </div>
                     </div>
                     <div className="navbar-end">
+                        <div className="navbar-item">
+                            <button className='button btn-orange-grad demo-btn is-small' onClick={() => setShowModal(true)}>
+                                        {t.sign}
+                            </button>
+                        </div>
+                        <div className="navbar-item">
+                            <button style={{backgroundColor:'#7367F0FF'}} className='button btn-grad is-small test-drive-btn'>
+                                <Link href="/test_drive">
+                                    <a className='has-text-white'>
+                                        {t.test_drive.title}
+                                    </a>
+                                </Link>
+                            </button>
+                        </div>
                         <div className="navbar-item">
                             <a href={t.banner.insta} target='_blank' rel="noreferrer">
                                 <Image src={insta}/>
@@ -222,6 +249,20 @@ export default function Header() {
                             </a>
                         </li>
                     </ul>
+                    <div className="navbar-item">
+                        <button className='button btn-orange-grad is-small demo-btn' onClick={() => showModalHideMenu()}>
+                            {t.sign}
+                        </button>
+                    </div>
+                    <div className="navbar-item">
+                        <button style={{backgroundColor:'#7367F0FF'}} className='button btn-grad is-small test-drive-btn'>
+                            <Link href="/test_drive">
+                                <a className='has-text-white'>
+                                    {t.test_drive.title}
+                                </a>
+                            </Link>
+                        </button>
+                    </div>
 
                 </aside>
             </div>

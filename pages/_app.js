@@ -1,6 +1,7 @@
 import "/styles/main.scss"
 import TagManager from 'react-gtm-module'
 import React, {useEffect} from "react";
+import NextNProgress from "nextjs-progressbar";
 
 const tagManagerArgs = {
     gtmId: "GTM-MDJLVR4",
@@ -14,6 +15,7 @@ export default function MyApp({ Component, pageProps }) {
     }, []);
     return(
         <>
+            <NextNProgress color="#DD00FFFF" showOnShallow={true} options={{ easing: 'ease', speed: 500 }} />
                 <Component {...pageProps} />
         </>
 

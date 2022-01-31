@@ -25,10 +25,10 @@ export default function SingleForm(props) {
 
         const httpConfig = {
             headers: {
-                'Authorization': 'kls72hdjxn93t69jag2b'
+                'Authorization': '88ce8238ec37ec28901ad76b529a2e92'
             }
         };
-        axios.post('https://crm.codifylab.com/api/crm/leads/?org_id=14', values, httpConfig)
+        axios.post('https://stage.crm.codifylab.com/api/crm/leads/?org_id=54', values, httpConfig)
             .then(res => {
                 if (res.status === 201) {
                     router.push('/thanks_demo')
