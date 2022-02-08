@@ -12,7 +12,7 @@ export function checkTimesTimes() {
     )
 }
 
-export function timesCheckCheck() {
+export function checkTimesCheck() {
     return (
         <>
             <td><strong className='has-text-success'>✓</strong></td>
@@ -22,12 +22,12 @@ export function timesCheckCheck() {
     )
 }
 
-export function checkTimesCheck() {
+export function checkCheckTimes() {
     return (
         <>
             <td><strong className='has-text-success'>✓</strong></td>
-            <td><strong className='has-text-danger'>X</strong></td>
             <td><strong className='has-text-success'>✓</strong></td>
+            <td><strong className='has-text-danger'>X</strong></td>
         </>
     )
 }
@@ -43,23 +43,23 @@ export function createNotCheckedRow(advantage) {
     )
 }
 
-export function createFirstColumnCheckedRow(advantage) {
-    return (
-        <>
-            <tr>
-                <td>{advantage}</td>
-                {[checkTimesCheck()]}
-            </tr>
-        </>
-    )
-}
-
 export function createSecondColumnCheckedRow(advantage) {
     return (
         <>
             <tr>
                 <td>{advantage}</td>
-                {[timesCheckCheck()]}
+                {[checkCheckTimes()]}
+            </tr>
+        </>
+    )
+}
+
+export function createThirdColumnCheckedRow(advantage) {
+    return (
+        <>
+            <tr>
+                <td>{advantage}</td>
+                {[checkTimesCheck()]}
             </tr>
         </>
     )
@@ -85,10 +85,10 @@ export default function Advantages() {
                             {createNotCheckedRow(t.a8s.first)}
                             {createNotCheckedRow(t.a8s.second)}
                             {createNotCheckedRow(t.a8s.third)}
-                            {createSecondColumnCheckedRow(t.a8s.fourth)}
+                            {createThirdColumnCheckedRow(t.a8s.fourth)}
                             {createNotCheckedRow(t.a8s.fives)}
-                            {createFirstColumnCheckedRow(t.a8s.seventh)}
-                            {createFirstColumnCheckedRow(t.a8s.eighth)}
+                            {createSecondColumnCheckedRow(t.a8s.seventh)}
+                            {createSecondColumnCheckedRow(t.a8s.eighth)}
                             {createNotCheckedRow(t.a8s.nines)}
                             {createNotCheckedRow(t.a8s.tens)}
                             {createNotCheckedRow(t.a8s.elevens)}

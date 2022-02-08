@@ -1,10 +1,10 @@
 module.exports = {
-    i18n:{
-        locales:["en", "ru"],
+    i18n: {
+        locales: ["en", "ru"],
         defaultLocale: "en",
         localeDetection: true
     },
-    webpack: (config, { isServer }) => {
+    webpack: (config, {isServer}) => {
         if (!isServer) {
             config.resolve.fallback = {
                 fs: false,

@@ -2,9 +2,13 @@ import macbook from "../assets/img/laptop.png"
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import {useRouter} from "next/router";
+import en from "../locales/en/en";
+import ru from "../locales/ru/ru";
 
 export default function DemoMacbook() {
-    const router = useRouter()
+    let router = useRouter()
+    const {locale} = router;
+    const t = locale === 'en' ? en : ru;
     let title = router.locale === "ru" ? "Демонстрация работы системы":"Demo of system"
     return (
         <>
@@ -16,8 +20,8 @@ export default function DemoMacbook() {
                     <div className="laptop">
                         <Image src={macbook} alt=""/>
                         <div className="video">
-                            <video src="/promo.mp4" controls>
-                                <source src="/promo.mp4" type="video/mp4"/>
+                            <video src={t.promoVideoLinks.main} controls>
+                                <source src={t.promoVideoLinks.main} type="video/mp4"/>
                             </video>
                             {/*<ReactPlayer className="video" url="superman.mp4" width="100%" height="100%" controls={true} />*/}
                         </div>

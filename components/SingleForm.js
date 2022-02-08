@@ -7,6 +7,9 @@ import ru from "../locales/ru/ru";
 import Image from "next/image";
 import check from "../assets/img/QuaintLikelyFlyingfish-size_restricted.gif";
 import Modal from "./Modal";
+import {sendEvent} from "./commonFunctions";
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css'
 
 export default function SingleForm(props) {
     let router = useRouter()
@@ -18,10 +21,15 @@ export default function SingleForm(props) {
         values[name] = event.target.value;
         setValues(values);
     };
+    const changePhone = (name, phone_number) => {
+        values[name] = `+${phone_number}`;
+        setValues(values);
+    }
     const [showDoneModal, setShowDoneModal] = useState(false)
 
     const sendLeadInfo = async event => {
         event.preventDefault()
+        sendEvent('submit_demo')
 
         const httpConfig = {
             headers: {
@@ -44,7 +52,7 @@ export default function SingleForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.name}</label>
                     <div className="control">
-                        <input className="input is-small is-centered is-rounded" required
+                        <input className="input is-centered" required
                                onChange={e => change('first_name', e)}
                                type="text"
                                placeholder="John Doe"/>
@@ -54,15 +62,21 @@ export default function SingleForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.phone}</label>
                     <div className="control">
-                        <input className="input is-small is-rounded" type="text" required onChange={e => change('phone', e)}
+                        <input className="input is-centered" type="number" required onChange={e => change('phone', e)}
                                placeholder="123456789"/>
                     </div>
+                    {/*<PhoneInput*/}
+                    {/*    country={'sg'}*/}
+                    {/*    inputStyle={{width:"100%", height:"40px", borderRadius:"15px"}}*/}
+                    {/*    buttonStyle={{borderRadius:"15px"}}*/}
+                    {/*    onChange={phone => changePhone('phone', phone)}*/}
+                    {/*    />*/}
                 </div>
 
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.email}</label>
                     <div className="control">
-                        <input className="input is-small is-rounded" type="email" onChange={e => change('email', e)}
+                        <input className="input" type="email" onChange={e => change('email', e)}
                                placeholder="useremail@email.com"/>
                     </div>
                 </div>
@@ -70,7 +84,7 @@ export default function SingleForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.company}</label>
                     <div className="control">
-                        <input className="input is-small is-rounded" type="text" onChange={e => change('company_name', e)}
+                        <input className="input" type="text" onChange={e => change('company_name', e)}
                                placeholder="Company GmbH"/>
                     </div>
                 </div>
@@ -81,7 +95,7 @@ export default function SingleForm(props) {
                         {t.form.sendBtnText}
                     </button>
                     <br/>
-                    <Link href="privacy-policy">
+                    <Link href="/privacy-policy">
                         <a className='violet-text is-small'>
                             <small>
                                 <u>{t.form.politicsLabel}</u>

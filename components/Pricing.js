@@ -18,8 +18,8 @@ export default function Pricing(props) {
         let isEnabled = toggleState === toggle
         return (
             <>
-                <div className='column'>
-                    <div className="label mb-6">
+                <div className="column box m-1">
+                    <div className="label">
                         <span className={isEnabled ? "violet-text" : ""}>{label}</span>
                         <br/>
                         <label className="form-switch">

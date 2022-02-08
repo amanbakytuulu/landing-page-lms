@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }) {
     }, []);
     return(
         <>
-            <NextNProgress color="#DD00FFFF" showOnShallow={true} options={{ easing: 'ease', speed: 500 }} />
+            <NextNProgress color="#DD00FFFF" height={5} showOnShallow={true} options={{ easing: 'ease', speed: 500 }} />
                 <Component {...pageProps} />
         </>
 

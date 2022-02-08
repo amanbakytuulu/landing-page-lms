@@ -1,5 +1,12 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
+    validation:{
+        required:"Required field",
+    },
+    promoVideoLinks:{
+        main:"/en_promo.MOV"
+    },
+
     sign: "Sign up for a demo",
     callback: "Order a callback",
     testDriveStart:"Start test-drive",
@@ -183,8 +190,8 @@ export default {
     },
     test_drive:{
         title: "Test drive",
-        bannerTitle:"Try the free 14-day version of the All-in-One CRM and LMS platform for educational centers right now!",
-        bannerSubtitle:"Get access to the system in seconds by filling out the form!",
+        bannerTitle:"Try the free 14-day version",
+        bannerSubtitle:" of the All-in-One CRM and LMS platform for educational centers right now! Get access to the system in seconds by filling out the form!",
         testDriveForm:{
             orgName:"Organization name",
             type:"Organization type",
@@ -195,6 +202,11 @@ export default {
         }
     },
     thanks_test_drive:{
-        title:"Congratulations, your organization has been created! Credentials and instructions for use have been sent to your email.",
+        title:"Thank you for your interest!",
+        subtitle: "Please check your email — the link to the demo version has already been sent to you by email"
     },
+    thanks_demo: {
+        title: "Your application is accepted!",
+        subtitle: "Our managers will get in touch with you as soon as possible!"
+    }
 }

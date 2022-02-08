@@ -149,7 +149,7 @@ export default function Header(...props) {
                                 <Image src={fb}/>
                             </a>
                         </div>
-                        <div className="navbar-item has-dropdown is-hoverable lang-dropdown">
+                        <div className="navbar-item has-dropdown is-hoverable lang-dropdown mr-6">
                             <a className="navbar-link is-arrowless">
                                 <Image className="language_img" src={locale === "en" ? usa : locale === "ru" ? rus : en}
                                        alt=""/>
