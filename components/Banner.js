@@ -13,25 +13,41 @@ export default function Banner(props) {
     const {locale} = router;
     const t = locale === 'en' ? en : ru;
 
+    function redirectTo(path) {
+        debugger
+        return router.push({pathname:path, query: router.query});
+    }
+    function redirectToAnchor(anchor){
+        return router.push({pathname:"/", hash:anchor, query: router.query});
+    }
+
     return (
         <div className='container mb-6'>
             <div className='banner'>
                 <div className="container">
                     <div className="side description">
-                        <h1>{t.banner.title}</h1>
-                        <p>{t.banner.subtitle}</p>
-                        <button className="btn-grad demo-btn" onClick={() => props.setShowModal(true)}>
-                            <label htmlFor="" className="label has-text-weight-semibold has-text-white">{t.sign}</label>
+                        <h1 data-aos='fade-up' data-aos-delay='100'>{t.banner.title}</h1>
+                        <p data-aos='fade-up' data-aos-delay='200'>{t.banner.subtitle}</p>
+                        <button
+                            data-aos='fade-left'
+                            data-aos-delay='300'
+                            className="btn-grad demo-btn"
+                            onClick={() => redirectTo("/demo")}>
+                            <label className="label has-text-weight-semibold has-text-white">{t.sign}</label>
                         </button>
-                        <button className="btn-orange-grad mt-3 test-drive-btn" onClick={() => router.push('/test_drive')}>
+                        <button
+                            data-aos='fade-right'
+                            data-aos-delay='400'
+                            className="btn-orange-grad mt-3 test-drive-btn"
+                            onClick={() => redirectTo("/test_drive")}>
                             <label htmlFor="" className="label has-text-weight-semibold has-text-white">{t.testDriveStart}</label>
                         </button>
 
                     </div>
                     <div className="side ban-img">
-                        <div className="ellipse">
+                        <div data-aos='zoom-in' data-aos-delay='400' className="ellipse">
                         </div>
-                        <div className="img">
+                        <div data-aos='zoom-in' className="img">
                             <Image src={laptop}/>
                         </div>
                     </div>

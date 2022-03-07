@@ -71,7 +71,7 @@ export default function Advantages() {
     const t = locale === 'en' ? en : ru;
     return (
         <>
-            <div className="container mt-6">
+            <div data-aos='fade-up' className="container mt-6">
                 <div id='advantages-block' className="box">
                     <div className="content">
                         <table className="table is-striped is-hoverable">

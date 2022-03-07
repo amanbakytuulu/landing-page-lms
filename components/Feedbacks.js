@@ -24,7 +24,6 @@ export function Feedback(name, companyName, companyLink, text, companyLogoUrl) {
                                 <p className="subtitle is-7">{name}</p>
                             </div>
                         </div>
-
                         <div className="content mt-4 is-italic is-small">
                             {text}
                             <br/>
@@ -42,7 +41,7 @@ export default function Feedbacks() {
     const t = locale === 'en' ? en : ru;
     return (
         <>
-            <div className="container">
+            <div className="container" data-aos="fade-up">
                 <div className="box mt-6">
                     <div className="content">
                         <h1>{t.fb.title}</h1>

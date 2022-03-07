@@ -1,8 +1,7 @@
 module.exports = {
     i18n: {
-        locales: ["en", "ru"],
         defaultLocale: "en",
-        localeDetection: true
+        locales: ["en", "ru"],
     },
     webpack: (config, {isServer}) => {
         if (!isServer) {
@@ -15,5 +14,13 @@ module.exports = {
         }
 
         return config;
-    }
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/test_drive/thanks_test_drive:path*',
+                destination: '/',
+            },
+        ]
+    },
 }

@@ -34,9 +34,9 @@ export default function MainFeatures(props) {
 
     return (
         <>
-            <div className="container mt-6">
+            <div className="container mt-6" data-aos='fade-up'>
                 <div className="columns">
-                    <div className="column">
+                    <div className="column" data-aos='fade-right' data-aos-delay='100'>
                         <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
@@ -49,7 +49,7 @@ export default function MainFeatures(props) {
                         </div>
                     </div>
 
-                    <div className="column">
+                    <div className="column" data-aos='fade-right' data-aos-delay='200'>
                         <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">
@@ -62,7 +62,7 @@ export default function MainFeatures(props) {
                         </div>
                     </div>
 
-                    <div className="column">
+                    <div className="column" data-aos='fade-right' data-aos-delay='300'>
                         <div className="card rounded">
                             <div className="card-content">
                                 <div className="content">

@@ -141,7 +141,7 @@ button{
 
       .img {
         z-index: 0;
-        transition: 2s;
+        transition: 1s;
       }
       .img:hover{
         transition: 2s;
@@ -801,6 +801,9 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
   align-items: center;
   background-image: url("en_dashboard.png");
   backdrop-filter: blur(5px);
+  @media (max-width: 980px) {
+    background-image: none;
+  }
 }
 .has-ru-lms-background{
   height: 100vh;
@@ -809,6 +812,10 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
   align-items: center;
   background-image: url("ru_dashboard.png");
   backdrop-filter: blur(5px);
+  background-repeat: initial;
+  @media (max-width: 980px) {
+    background-image: none;
+  }
 }
 
 

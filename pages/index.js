@@ -2,7 +2,7 @@ import {MainLayout} from "../components/MainLayout";
 import Banner from "../components/Banner";
 import {useRouter} from "next/router";
 import MainFeatures from "../components/MainFeatures";
-import DemoMacbook from "../components/demoMacbook";
+import DemoMacbook from "../components/DemoMacbook";
 import Category from "../components/Category";
 import DynamicBanner from "../components/DynamicBanner";
 import Features from "../components/Features";

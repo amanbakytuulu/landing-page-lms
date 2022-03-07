@@ -88,7 +88,7 @@ export default function Category() {
 
             </ul>
 
-            <div style={{scrollMarginTop: 100}} id="category-block"  className="container mt-6">
+            <div style={{scrollMarginTop: 100}} id="category-block" data-aos='fade-up'  className="container mt-6">
                 <div  className="box">
                     <div className="content">
                         <h1>{router.locale === 'en'? "Category or who it suits" : router.locale === "ru" ? "Категории или кому это подходит" : "Category"}</h1><br/>

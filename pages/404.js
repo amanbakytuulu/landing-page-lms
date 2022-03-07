@@ -11,15 +11,15 @@ export default function Custom404() {
     const router = useRouter()
     const {locale} = router;
     const t = locale === 'en' ? en : ru;
-    useEffect(() => {
-            if (!(location.pathname.startsWith("/en")) || (!(location.pathname.startsWith("/ru")))){
-                const locale = 'en';
-                router.push(router.asPath, {locale, scroll: false, shallow: true});
-            }
-            else if (location.pathname === "/_error") {
-                router.push("/", {locale, scroll: false, shallow: true});
-            }
-        }, []);
+    // useEffect(() => {
+    //         if (!(location.pathname.startsWith("/en")) || (!(location.pathname.startsWith("/ru")))){
+    //             const locale = 'en';
+    //             router.push(router.asPath, {locale, scroll: false, shallow: true});
+    //         }
+    //         else if (location.pathname === "/_error") {
+    //             router.push("/", {locale, scroll: false, shallow: true});
+    //         }
+    //     }, []);
 
     return (
         <MainLayout title="Page not found">

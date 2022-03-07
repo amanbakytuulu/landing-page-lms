@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "./Header";
 import en from "../locales/en/en.js";
 import ru from "../locales/ru/ru.js";
+import Footer from "./Footer";
 
 export function MainLayout({children, title}) {
     let router = useRouter()
@@ -31,15 +32,7 @@ export function MainLayout({children, title}) {
                 margin-top: 60px;
               }
             `}</style>
-
-            <footer className="footer has-background-grey-dark has-text-grey">
-                    <div className="content has-text-centered-desktop has-text-centered-mobile">
-                        <h1 className="has-text-white">Codify LMS CRM</h1>
-                        <span className="ml-1"><Link href="/privacy-policy"><a className="has-text-grey">{t.privacyPolicy.title}</a></Link></span>
-                        <p>Codify LMS © 2020-2022</p>
-                    </div>
-
-            </footer>
+            <Footer/>
         </>
     )
 }

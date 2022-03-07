@@ -24,7 +24,7 @@ export default function Stats() {
     const t = locale === 'en' ? en : ru;
     return (
         <>
-            <div className="container mt-6">
+            <div data-aos="fade-up" className="container mt-6">
                 <div className="box">
                     <div className="content">
                         <div className="columns mt-3 mb-3 has-text-centered">

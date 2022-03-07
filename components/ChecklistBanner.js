@@ -15,7 +15,7 @@ export default function ChecklistBanner(props) {
 
     return (
         <>
-            <div className="container mt-6">
+            <div className="container mt-6" data-aos='fade-up'>
                 <div className="box content">
                     <section className="hero">
                         <div className="bubbles">

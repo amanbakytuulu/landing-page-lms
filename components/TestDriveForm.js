@@ -1,15 +1,14 @@
 import {useRouter} from "next/router";
 import en from "../locales/en/en";
 import ru from "../locales/ru/ru";
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import RenderServerError from "./serverErorRenderer";
 import axios from "axios";
-import {sendEvent} from './commonFunctions'
+import {sendEvent} from "./commonFunctions";
 import PhoneInput from "react-phone-input-2";
-import Link from "next/link";
 
 export default function TestDriveForm(props) {
     let router = useRouter()
@@ -27,7 +26,10 @@ export default function TestDriveForm(props) {
         email: Yup.string()
             .required(t.validation.required),
         phone: Yup.string()
-            .required(t.validation.required),
+            .min(10, "Please enter your phone number.")
+            // .matches("/^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$/im", "Please enter your phone number.")
+
+
     })
 
     const formOptions = {resolver: yupResolver(validationScheme)};
@@ -35,6 +37,13 @@ export default function TestDriveForm(props) {
     const [values, setValues] = useState({});
     let {errors} = formState;
 
+    function redirectTo(path) {
+        return router.push({pathname: path, query: router.query});
+    }
+
+    function redirectToAnchor(anchor) {
+        return router.push({pathname: "/", hash: anchor, query: router.query});
+    }
 
     const change = (name, event) => {
         values[name] = event.target.value;
@@ -50,7 +59,19 @@ export default function TestDriveForm(props) {
         data['currency'] = "USD"
         data['language'] = `${router.locale}`
         data['type'] = "courses"
-        sendEvent('submit_demo')
+        data["phone"] = values.phone
+        let comments = []
+
+        if (Object.keys(router.query)) {
+            for (let [key, value] of Object.entries(router.query)) {
+                if (key.startsWith("utm_")) {
+                    comments.push(`${key}: ${value}`)
+                }
+            }
+        }
+        comments.push(`Company name: ${data.name}`)
+        comments.push(`<b> FROM TEST DRIVE </b>`)
+
 
         setIsFormLoading(true)
         sendEvent("submit_test_drive")
@@ -75,6 +96,10 @@ export default function TestDriveForm(props) {
                 })
             }
             if (response_data.status === 200) {
+                response_data.json().then(data => {
+                    localStorage.setItem("accept_url", `${data.accept_url}`)
+                })
+
                 setHasServerErrors(false)
                 const httpConfig = {
                     headers: {
@@ -86,15 +111,16 @@ export default function TestDriveForm(props) {
                     "first_name": `${data['full_name']}`,
                     "company_name": `${data['name']}`,
                     "phone": `${data['phone']}`,
-                    "email": `${data['email']}`
+                    "email": `${data['email']}`,
+                    "extra_comments": comments
                 }
                 axios.post('https://stage.crm.codifylab.com/api/crm/leads/?org_id=54', values, httpConfig)
-                    .then(res =>{
+                    .then(res => {
                         console.log("Success!")
                     }).catch(function (error) {
-                        console.log(error)
-                    });
-                router.push("/thanks_test_drive")
+                    console.log(error)
+                });
+                redirectTo("test_drive/thanks_test_drive")
             }
         })
     }
@@ -105,7 +131,8 @@ export default function TestDriveForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.test_drive.testDriveForm.orgName}</label>
                     <div className="control">
-                        <input name="name" disabled={isFormLoading ? 'True' : ''}
+                        <input name="name"
+                               disabled={isFormLoading ? 'True' : ''}
                                {...register('name')}
                                className={`input is-centered ${errors.name ? 'is-danger' : ''}`}
                                onChange={e => change('company_name', e)}
@@ -118,7 +145,8 @@ export default function TestDriveForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.test_drive.testDriveForm.fullName}</label>
                     <div className="control">
-                        <input name="full_name" disabled={isFormLoading ? 'True' : ''}
+                        <input name="full_name"
+                               disabled={isFormLoading ? 'True' : ''}
                                onChange={e => change('first_name', e)}
                                {...register('full_name')}
                                className={`input is-centered ${errors.full_name ? 'is-danger' : ''}`}
@@ -132,12 +160,13 @@ export default function TestDriveForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.test_drive.testDriveForm.email}</label>
                     <div className="control">
-                        <input name="email" disabled={isFormLoading ? 'True' : ''}
+                        <input name="email"
+                               disabled={isFormLoading ? 'True' : ''}
                                onChange={e => change('email', e)}
                                {...register('email')}
                                className={`input is-centered ${errors.email ? 'is-danger' : ''}`}
                                type="email"
-                               placeholder="username@gmail.com"/>
+                               placeholder="username@mail.com"/>
                     </div>
                     <p className="help is-danger">{errors.email?.message}</p>
                 </div>
@@ -145,19 +174,23 @@ export default function TestDriveForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.test_drive.testDriveForm.phone}</label>
                     <div className="control">
-                        <input name="phone" disabled={isFormLoading ? 'True' : ''}
-                               onChange={e => change('phone', e)}
-                               {...register('phone')}
-                               className={`input is-centered ${errors.phone ? 'is-danger' : ''}`}
-                               type="number"
-                               placeholder="123456789"/>
-                        {/*<PhoneInput*/}
-                        {/*    inputProps={register('phone')}*/}
-                        {/*    country={'ru'}*/}
-                        {/*    inputStyle={{width:"100%", height:"40px", borderRadius:"15px"}}*/}
-                        {/*    buttonStyle={{borderRadius:"15px"}}*/}
-                        {/*    onChange={phone => changePhone('phone', phone)}*/}
-                        {/*/>*/}
+                        {/*<input name="phone" disabled={isFormLoading ? 'True' : ''}*/}
+                        {/*       onChange={e => change('phone', e)}*/}
+                        {/*       {...register('phone')}*/}
+                        {/*       className={`input is-centered ${errors.phone ? 'is-danger' : ''}`}*/}
+                        {/*       type="text"*/}
+                        {/*       pattern="^([+\d].*)?\d$"*/}
+                        {/*       placeholder="123456789"/>*/}
+                        <PhoneInput
+                            country={'ru'}
+                            inputProps={() => {register('phone')}}
+                            inputStyle={
+                                errors.phone ? {width: "100%", height: "40px", borderRadius: "15px", borderColor: "red"}
+                                    : {width: "100%", height: "40px", borderRadius: "15px"}
+                            }
+                            buttonStyle={{borderRadius: "15px"}}
+                            onChange={phone => changePhone('phone', phone)}
+                        />
 
                         <p className="help is-danger">{errors.phone?.message}</p>
                     </div>
@@ -170,13 +203,11 @@ export default function TestDriveForm(props) {
                         {t.testDriveStart}
                     </button>
                     <br/>
-                    <Link href="/privacy-policy">
-                        <a className='violet-text is-small'>
-                            <small>
-                                <u>{t.form.politicsLabel}</u>
-                            </small>
-                        </a>
-                    </Link>
+                    <a className='violet-text is-small' onClick={() => redirectTo("/privacy-policy")}>
+                        <small>
+                            <u>{t.form.politicsLabel}</u>
+                        </small>
+                    </a>
                 </div>
             </form>
 

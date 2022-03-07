@@ -5,9 +5,9 @@ import Accordion from "../components/ReactAccordion";
 
 export function createQuestionAnswerAccordionBlock(question, answer, setShowing){
     return(
-        <>
+        <div className="box m-1 zoomable">
             <Accordion title={question} content={answer} setShowing={setShowing}/>
-        </>
+        </div>
     )
 }
 export default function QuestionAnswer() {
@@ -17,7 +17,7 @@ export default function QuestionAnswer() {
 
     return (
         <>
-            <div className="container mt-6">
+            <div className="container mt-6" data-aos="fade-up">
                 <div className="box">
                     <div className="content">
                         <h1>{t.qa.title}</h1>

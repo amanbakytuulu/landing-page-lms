@@ -8,7 +8,7 @@ export default function DynamicBanner(props) {
     const t = locale === 'en' ? en : ru;
     return (
         <>
-                <div style={{cursor:"pointer"}} className="container mt-6" onClick={()=> props.setShowModal(true)}>
+                <div style={{cursor:"pointer"}} className="container mt-6" data-aos='fade-up' onClick={()=> props.setShowModal(true)}>
                     <div className="context mt-6">
                         <div className="content is-centered has-text-centered-desktop has-text-centered-mobile">
                             <h3 className="has-text-white mt-6">{props.btnText}</h3>

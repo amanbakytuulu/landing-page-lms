@@ -1,15 +1,15 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    validation:{
-        required:"Required field",
+    validation: {
+        required: "Required field",
     },
-    promoVideoLinks:{
-        main:"/en_promo.MOV"
+    promoVideoLinks: {
+        main: "/en_promo.MOV"
     },
 
-    sign: "Sign up for a demo",
+    sign: "Get demo",
     callback: "Order a callback",
-    testDriveStart:"Start test-drive",
+    testDriveStart: "Start test-drive",
     goBackBtnText: "Go back home",
     privacyPolicy: {
         title: "Privacy Policy",
@@ -188,25 +188,68 @@ export default {
         partners: "partners",
         courses: "success finished courses",
     },
-    test_drive:{
+    demo: {
+        title: "Codify LMS Platform “All in one”. Automate and increase sales in your training center right now!",
+        title2: "Fill out the form and get an E-book as a gift - \"A short guide to choosing CRM LMS systems for educational centers\" right now!"
+    },
+    test_drive: {
         title: "Test drive",
-        bannerTitle:"Try the free 14-day version",
-        bannerSubtitle:" of the All-in-One CRM and LMS platform for educational centers right now! Get access to the system in seconds by filling out the form!",
-        testDriveForm:{
-            orgName:"Organization name",
-            type:"Organization type",
-            fullName:"Full name",
-            email:"Email",
-            phone:"Phone number",
+        bannerTitle: "Try the free 14-day version",
+        bannerSubtitle: " of the All-in-One CRM and LMS platform for educational centers right now! Get access to the system in seconds by filling out the form!",
+        testDriveForm: {
+            orgName: "Organization name",
+            type: "Organization type",
+            fullName: "Full name",
+            email: "Email",
+            phone: "Phone number",
 
         }
     },
-    thanks_test_drive:{
-        title:"Thank you for your interest!",
-        subtitle: "Please check your email — the link to the demo version has already been sent to you by email"
+    thanks_test_drive: {
+        title: "Thank you for your interest!",
+        subtitle: "or check your email — the link to the demo version has already been sent to you by email",
+        start: "START USING",
     },
     thanks_demo: {
         title: "Your application is accepted!",
-        subtitle: "Our managers will get in touch with you as soon as possible!"
+        subtitle: "Our managers will get in touch with you as soon as possible!",
+        btnText: "Download E-BOOK"
+    },
+    categories: {
+        business: "Business",
+        businessDescription: {
+            1: "Store a database of your customers",
+            2: "Lead forms gather applications from multiple channels into a single sales funnel",
+            3: "Conveniently create deals at each stage",
+            4: "Accounting for online and cash payments",
+            5: "A corporate LMS for delivering online/offline training and learning content to your employees"
+        },
+        courses: "Courses",
+        coursesDescription: {
+            1: "Manage the curriculum of classes",
+            2: "Mobile learning are accessible wherever and whenever through mobile app.",
+            3: "Managing courses, schedules and visits",
+            4: "Gamification that allow mentors and teachers to create courses with extra motivation and engagement",
+            5: "Collaboration tools: team works, chats",
+            6: "Database of all students and accounting for online and cash payments",
+        },
+        kindergarten: "Kindergarten",
+        kindergartenDescription: {
+            1: "Database of children and their parents",
+            2: "Report on children's activity for parents on the mobile app",
+            3: "Online accounting and cash payments",
+            4: "Quick accounting of all debtors",
+            5: "Automatic calculation of teachers' salaries",
+        },
+    },
+    layout: {
+        product: "Product",
+        category: "Category",
+        features: "Features",
+        price: "Price",
+    },
+    footer: {
+        title: "Codify CRM LMS",
+        description: "An all-in-one platform for automating learning processes in educational centers"
     }
 }

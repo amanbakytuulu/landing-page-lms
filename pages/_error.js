@@ -12,8 +12,8 @@ export default function Custom404() {
     const {locale} = router;
 
     useEffect(() => {
+        const locale = 'en';
         if (!(location.pathname.startsWith("/en"))){
-            const locale = 'en';
             router.push(router.pathname, router.asPath, {locale, scroll: false});
         }
         else if (location.pathname === "/_error") {
@@ -27,7 +27,7 @@ export default function Custom404() {
         <MainLayout title="Loading...">
             <div style={{margin: "0 auto"}} className="container is-centered is-center has-text-centered-desktop">
                 <div className="box">
-                    <Image src={img404}/>
+                    <Image src={img404} alt='404'/>
                     <Link href="/">
                         <a>
                             <button className="btn-grad">{t.goBackBtnText}</button>

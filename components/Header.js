@@ -22,16 +22,18 @@ export default function Header(...props) {
     let router = useRouter()
     const {locale} = router;
     const t = locale === 'en' ? en : ru;
+
     const [asideShow, setAsideShow] = useState(false)
 
+    function redirectTo(path) {
+        setAsideShow(false)
+        return router.push({pathname: path, query: router.query}, undefined, {scroll: true});
+    }
 
-    let product = router.locale === 'en' ? 'Product' : router.locale === 'ru' ? "Продукт" : "Product"
-    let category = router.locale === 'en' ? 'Category' : router.locale === 'ru' ? "Категории" : "Category"
-    let features = router.locale === 'en' ? 'Features' : router.locale === 'ru' ? "Особенности" : "Features"
-    let price = router.locale === 'en' ? 'Price' : router.locale === 'ru' ? "Цена" : "Price"
-    let news = router.locale === 'en' ? 'News' : router.locale === 'ru' ? "Новости" : "News"
-    let contacts = router.locale === 'en' ? 'Contacts' : router.locale === 'ru' ? "Контакты" : "Contacts"
-
+    function redirectToAnchor(anchor) {
+        setAsideShow(false)
+        return router.push({pathname: "/", hash: anchor, query: router.query});
+    }
 
     const changeLanguage = (e) => {
         const locale = e.target.id;
@@ -63,12 +65,11 @@ export default function Header(...props) {
             </style>
             <nav className="navbar has-text-justified-desktop is-fixed-top" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <Link href="/" scroll={true}>
-                        <a className="navbar-item">
+                    <a>
+                        <div className='navbar-item' onClick={() => redirectTo("/")}>
                             <Image width="169" height="35" alt="Codify LMS x CRM" src={logo}/>
-                        </a>
-                    </Link>
-
+                        </div>
+                    </a>
                     <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="true" onClick={() => setAsideShow(true)}>
                         <span aria-hidden="true"/>
                         <span aria-hidden="true"/>
@@ -78,55 +79,54 @@ export default function Header(...props) {
 
                 <div className="navbar-menu">
 
-                    <div className="navbar-item">
+                    <div className="navbar-item" onClick={() => redirectToAnchor('#product-block')}>
                         <div className="violet-text">
                             <h4>
-                                <Link href="/#product-block">
-                                    {product}
-                                </Link>
+                                <a>
+                                    {t.layout.product}
+                                </a>
                             </h4>
                         </div>
                     </div>
-                    <div className="navbar-item">
+                    <div className="navbar-item" onClick={() => redirectToAnchor("#category-block")}>
                         <div className="violet-text">
-                            <Link href="/#category-block">
-                                <a>
-                                    <h4>{category}</h4>
-                                </a>
-                            </Link>
+                            <a>
+                                <h4>{t.layout.category}</h4>
+                            </a>
                         </div>
                     </div>
-                    <div className="navbar-item">
+                    <div className="navbar-item" onClick={() => redirectToAnchor("#features-block")}>
                         <div className="violet-text">
-                            <Link href="/#features-block">
-                                <a>
-                                    <h4>{features}</h4>
-                                </a>
-                            </Link>
+                            <a>
+                                <h4>{t.layout.features}</h4>
+                            </a>
                         </div>
                     </div>
-                    <div className="navbar-item">
+                    <div className="navbar-item" onClick={() => redirectToAnchor("#pricing-block")}>
                         <div className="violet-text">
-                            <Link href="/#pricing-block">
-                                <a>
-                                    <h4>{price}</h4>
-                                </a>
-                            </Link>
+                            <a>
+                                <h4>{t.layout.price}</h4>
+                            </a>
                         </div>
                     </div>
                     <div className="navbar-end">
                         <div className="navbar-item">
-                            <button className='button btn-orange-grad demo-btn is-small' onClick={() => setShowModal(true)}>
-                                        {t.sign}
+                            <button style={{color: '#ffffff'}} onClick={() => redirectTo("/demo")} className='button btn-orange-grad demo-btn is-small'>
+                                {t.sign}
                             </button>
                         </div>
                         <div className="navbar-item">
-                            <button style={{backgroundColor:'#7367F0FF'}} className='button btn-grad is-small test-drive-btn'>
-                                <Link href="/test_drive">
-                                    <a className='has-text-white'>
-                                        {t.test_drive.title}
-                                    </a>
-                                </Link>
+                            <button
+                                onClick={() => router.push({
+                                    pathname: '/test_drive',
+                                    query: router.query
+                                })
+                                }
+                                style={{backgroundColor: '#7367F0FF'}}
+                                className='button btn-grad is-small test-drive-btn'>
+                                <a className='has-text-white'>
+                                    {t.test_drive.title}
+                                </a>
                             </button>
                         </div>
                         <div className="navbar-item">
@@ -181,26 +181,24 @@ export default function Header(...props) {
                             <p>{router.locale === "ru" ? "Навигация" : "Navigation"}</p>
                         </li>
                         <li>
-                            <Link href="/#product-block">
-                                <a onClick={() => setAsideShow(false)}>
-                                    {product}
-                                </a>
-                            </Link>
+                            <a onClick={() => redirectToAnchor("#product-block")}>
+                                {t.layout.product}
+                            </a>
                         </li>
                         <li>
-                            <Link href="/#category-block">
-                                <a onClick={() => setAsideShow(false)}>{category}</a>
-                            </Link>
+                            <a onClick={() => redirectToAnchor("#category-block")}>
+                                {t.layout.category}
+                            </a>
                         </li>
                         <li>
-                            <Link href="/#features-block">
-                                <a onClick={() => setAsideShow(false)}>{features}</a>
-                            </Link>
+                            <a onClick={() => redirectToAnchor("#features-block")}>
+                                {t.layout.features}
+                            </a>
                         </li>
                         <li>
-                            <Link href="/#pricing-block">
-                                <a onClick={() => setAsideShow(false)}>{price}</a>
-                            </Link>
+                            <a onClick={() => redirectToAnchor("#pricing-block")}>
+                                {t.layout.price}
+                            </a>
                         </li>
                         <li>&nbsp;</li>
                         <li>&nbsp;</li>
@@ -250,17 +248,13 @@ export default function Header(...props) {
                         </li>
                     </ul>
                     <div className="navbar-item">
-                        <button className='button btn-orange-grad is-small demo-btn' onClick={() => showModalHideMenu()}>
+                        <button className='button btn-orange-grad is-small demo-btn' onClick={() => redirectTo("/demo")}>
                             {t.sign}
                         </button>
                     </div>
-                    <div className="navbar-item">
-                        <button style={{backgroundColor:'#7367F0FF'}} className='button btn-grad is-small test-drive-btn'>
-                            <Link href="/test_drive">
-                                <a className='has-text-white'>
-                                    {t.test_drive.title}
-                                </a>
-                            </Link>
+                    <div className="navbar-item" onClick={() => redirectTo("/test_drive")}>
+                        <button className='button btn-grad is-small test-drive-btn'>
+                            {t.test_drive.title}
                         </button>
                     </div>
 

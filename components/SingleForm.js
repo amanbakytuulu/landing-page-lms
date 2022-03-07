@@ -16,6 +16,14 @@ export default function SingleForm(props) {
     const {locale} = router;
     const t = locale === 'en' ? en : ru;
 
+    function redirectTo(path) {
+        return router.push({pathname: path, query: router.query});
+    }
+
+    function redirectToAnchor(anchor) {
+        return router.push({pathname: "/", hash: anchor, query: router.query});
+    }
+
     const [values, setValues] = useState({});
     const change = (name, event) => {
         values[name] = event.target.value;
@@ -25,13 +33,30 @@ export default function SingleForm(props) {
         values[name] = `+${phone_number}`;
         setValues(values);
     }
+
+    let comments = []
+
+    if (Object.keys(router.query)) {
+        for (let [key, value] of Object.entries(router.query)) {
+            if (key.startsWith("utm_")) {
+                comments.push(`${key}: ${value}`)
+            }
+        }
+    }
+    values['extra_comments'] = comments
     const [showDoneModal, setShowDoneModal] = useState(false)
 
     const sendLeadInfo = async event => {
+        if (typeof(values['company_name']) !== 'undefined') {
+            await values['extra_comments'].push(`Company name: ${values['company_name']}`)
+        }
+        values['extra_comments'].push(`<b> DEMO </b>`)
         event.preventDefault()
         sendEvent('submit_demo')
 
         const httpConfig = {
+            method: "POST",
+            mode: "cors",
             headers: {
                 'Authorization': '88ce8238ec37ec28901ad76b529a2e92'
             }
@@ -39,13 +64,14 @@ export default function SingleForm(props) {
         axios.post('https://stage.crm.codifylab.com/api/crm/leads/?org_id=54', values, httpConfig)
             .then(res => {
                 if (res.status === 201) {
-                    router.push('/thanks_demo')
+                    redirectTo("demo/thanks_demo")
                 }
             })
             .catch(function (error) {
                 console.log('error', error);
             });
     }
+
     return (
         <>
             <form onSubmit={sendLeadInfo}>
@@ -62,11 +88,12 @@ export default function SingleForm(props) {
                 <div className="field">
                     <label className="label has-text-weight-semibold">{t.form.phone}</label>
                     <div className="control">
-                        <input className="input is-centered" type="number" required onChange={e => change('phone', e)}
+                        <input className="input is-centered" required={true} type="text" pattern="^([+\d].*)?\d$" onChange={e => change('phone', e)}
                                placeholder="123456789"/>
                     </div>
                     {/*<PhoneInput*/}
-                    {/*    country={'sg'}*/}
+                    {/*    country={'ru'}*/}
+                    {/*    inputProps={{register}}*/}
                     {/*    inputStyle={{width:"100%", height:"40px", borderRadius:"15px"}}*/}
                     {/*    buttonStyle={{borderRadius:"15px"}}*/}
                     {/*    onChange={phone => changePhone('phone', phone)}*/}
@@ -95,18 +122,16 @@ export default function SingleForm(props) {
                         {t.form.sendBtnText}
                     </button>
                     <br/>
-                    <Link href="/privacy-policy">
-                        <a className='violet-text is-small'>
-                            <small>
-                                <u>{t.form.politicsLabel}</u>
-                            </small>
-                        </a>
-                    </Link>
+                    <a className='violet-text is-small' onClick={() => redirectTo("/privacy-policy")}>
+                        <small>
+                            <u>{t.form.politicsLabel}</u>
+                        </small>
+                    </a>
                 </div>
             </form>
 
             <Modal
-                onClose={()=>setShowDoneModal(false)}
+                onClose={() => setShowDoneModal(false)}
                 show={showDoneModal}
             >
                 <div className="content is has-text-centered-desktop has-text-centered-mobile">
