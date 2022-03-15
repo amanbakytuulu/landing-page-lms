@@ -1,6 +1,8 @@
 export default {
     validation: {
         required: "Обязательное поле",
+        email:"неверный адрес электронной почты",
+        min:"недостаточно цифр"
     },
     promoVideoLinks:{
         main:"/ru_promo.mp4"

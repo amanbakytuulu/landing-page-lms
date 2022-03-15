@@ -2,6 +2,8 @@
 export default {
     validation: {
         required: "Required field",
+        email:"invalid email",
+        min:"not enough numbers"
     },
     promoVideoLinks: {
         main: "/en_promo.MOV"
