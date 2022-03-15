@@ -66,7 +66,7 @@ export default function Header(...props) {
                             <Image width="169" height="35" alt="Codify LMS x CRM" src={logo}/>
                         </div>
                     </a>
-                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="true" onClick={() => setAsideShow(true)}>
+                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="true" onClick={() => setAsideShow(!asideShow)}>
                         <span aria-hidden="true"/>
                         <span aria-hidden="true"/>
                         <span aria-hidden="true"/>
@@ -171,9 +171,8 @@ export default function Header(...props) {
             </nav>
             <div className={asideShow === false ? "dont-show" : null}>
                 <aside className="menu side-menu">
-                    <Image src={closeIcon} onClick={() => setAsideShow(false)}/>
                     <ul className="menu-list">
-                        <li className="menu-label">
+                        <li className="menu-label mt-2">
                             <p>{router.locale === "ru" ? "Навигация" : "Navigation"}</p>
                         </li>
                         <li>
@@ -205,18 +204,18 @@ export default function Header(...props) {
                             <p>{router.locale === "ru" ? "Выбор языка" : "Language"}</p>
                         </li>
                         <li>
-                            <div style={{cursor: "pointer"}} className="navbar-dropdown is-boxed is-right">
-                                <a className="navbar-item" id="en" onClick={changeLanguage}>
+                            <div style={{cursor: "pointer"}} className="navbar-dropdown is-boxed is-right mb-3">
+                                <a style={{display:'flex', alignItems:'center'}} className="navbar-item" id="en" onClick={changeLanguage}>
                                     <Image id="en" onClick={changeLanguage}
                                            src={usa} className="language_img"
-                                           alt=""/>
-                                    <div id="en" onClick={changeLanguage} style={{marginLeft: 10}}>English</div>
+                                           alt="usa"/>
+                                    <div id="en" onClick={changeLanguage} style={{marginLeft: 12}}>English</div>
                                 </a>
-                                <a className="navbar-item" id="ru" onClick={changeLanguage}>
+                                <a style={{display:'flex', alignItems:'center'}} className="navbar-item" id="ru" onClick={changeLanguage}>
                                     <Image id="ru" onClick={changeLanguage}
                                            src={rus} className="language_img"
-                                           alt=""/>
-                                    <div id="ru" onClick={changeLanguage} style={{marginLeft: 10}}>Русский</div>
+                                           alt="rus"/>
+                                    <div id="ru" onClick={changeLanguage} style={{marginLeft: 12}}>Русский</div>
                                 </a>
                             </div>
                         </li>
@@ -244,12 +243,12 @@ export default function Header(...props) {
                         </li>
                     </ul>
                     <div className="navbar-item">
-                        <button className='button btn-orange-grad is-small demo-btn' onClick={() => redirectTo("/demo")}>
+                        <button className='button btn-orange-grad is-small demo-btn pb-5' onClick={() => redirectTo("/demo")}>
                             {t.sign}
                         </button>
                     </div>
                     <div className="navbar-item" onClick={() => redirectTo("/test_drive")}>
-                        <button className='button btn-grad is-small test-drive-btn'>
+                        <button className='button btn-grad is-small test-drive-btn pb-5'>
                             {t.test_drive.title}
                         </button>
                     </div>
