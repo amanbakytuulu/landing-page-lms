@@ -5,9 +5,9 @@ import {useContext, useEffect, useState} from "react";
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import RenderServerError from "./serverErorRenderer";
+import RenderServerError from "./serverErrorRenderer";
 import axios from "axios";
-import {sendEvent} from "./commonFunctions";
+import {redirectTo, sendEvent} from "./commonFunctions";
 import PhoneInput from "react-phone-input-2";
 
 export default function TestDriveForm(props) {
@@ -36,14 +36,6 @@ export default function TestDriveForm(props) {
     const {register, handleSubmit, reset, formState} = useForm(formOptions);
     const [values, setValues] = useState({});
     let {errors} = formState;
-
-    function redirectTo(path) {
-        return router.push({pathname: path, query: router.query});
-    }
-
-    function redirectToAnchor(anchor) {
-        return router.push({pathname: "/", hash: anchor, query: router.query});
-    }
 
     const change = (name, event) => {
         values[name] = event.target.value;
@@ -120,7 +112,7 @@ export default function TestDriveForm(props) {
                     }).catch(function (error) {
                     console.log(error)
                 });
-                redirectTo("test_drive/thanks_test_drive")
+                redirectTo("test_drive/thanks_test_drive",router);
             }
         })
     }

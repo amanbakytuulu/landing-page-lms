@@ -7,7 +7,7 @@ import ru from "../locales/ru/ru";
 import Image from "next/image";
 import check from "../assets/img/QuaintLikelyFlyingfish-size_restricted.gif";
 import Modal from "./Modal";
-import {sendEvent} from "./commonFunctions";
+import {redirectTo, sendEvent} from "./commonFunctions";
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css'
 
@@ -15,14 +15,6 @@ export default function SingleForm(props) {
     let router = useRouter()
     const {locale} = router;
     const t = locale === 'en' ? en : ru;
-
-    function redirectTo(path) {
-        return router.push({pathname: path, query: router.query});
-    }
-
-    function redirectToAnchor(anchor) {
-        return router.push({pathname: "/", hash: anchor, query: router.query});
-    }
 
     const [values, setValues] = useState({});
     const change = (name, event) => {
@@ -64,7 +56,7 @@ export default function SingleForm(props) {
         axios.post('https://stage.crm.codifylab.com/api/crm/leads/?org_id=54', values, httpConfig)
             .then(res => {
                 if (res.status === 201) {
-                    redirectTo("demo/thanks_demo")
+                    redirectTo("demo/thanks_demo",router);
                 }
             })
             .catch(function (error) {
@@ -122,7 +114,7 @@ export default function SingleForm(props) {
                         {t.form.sendBtnText}
                     </button>
                     <br/>
-                    <a className='violet-text is-small' onClick={() => redirectTo("/privacy-policy")}>
+                    <a className='violet-text is-small' onClick={() => redirectTo("/privacy-policy",router)}>
                         <small>
                             <u>{t.form.politicsLabel}</u>
                         </small>
