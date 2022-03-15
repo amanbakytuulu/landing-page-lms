@@ -2,6 +2,7 @@ import Link from "next/link";
 import {useRouter} from "next/router";
 import en from "../locales/en/en";
 import ru from "../locales/ru/ru";
+import { redirectToAnchor } from './commonFunctions';
 
 export default function Footer() {
     let router = useRouter()
@@ -10,10 +11,6 @@ export default function Footer() {
 
     function redirectTo(path) {
         return router.push({pathname: path, query: router.query}, undefined, {scroll: true});
-    }
-
-    function redirectToAnchor(anchor) {
-        return router.push({pathname: "/", hash: anchor, query: router.query});
     }
 
     return (
@@ -53,28 +50,28 @@ export default function Footer() {
                         <div className="column">
                             <p className="bd-footer-link">
                                 <a>
-                                    <span onClick={() => redirectToAnchor("#product-block")}
+                                    <span onClick={() => redirectToAnchor("#product-block",router)}
                                           className="icon-text">
                                         {t.layout.product}
                                     </span>
                                 </a>
                                 <br/>
                                 <a>
-                                    <span onClick={() => redirectToAnchor("#category-block")}
+                                    <span onClick={() => redirectToAnchor("#category-block",router)}
                                           className="icon-text">
                                         {t.layout.category}
                                     </span>
                                 </a>
                                 <br/>
                                 <a>
-                                    <span onClick={() => redirectToAnchor("#features-block")}
+                                    <span onClick={() => redirectToAnchor("#features-block",router)}
                                           className="icon-text">
                                         {t.layout.features}
                                     </span>
                                 </a>
                                 <br/>
                                 <a>
-                                    <span onClick={() => redirectToAnchor("#pricing-block")}
+                                    <span onClick={() => redirectToAnchor("#pricing-block",router)}
                                           className="icon-text">
                                         {t.layout.price}
                                     </span>

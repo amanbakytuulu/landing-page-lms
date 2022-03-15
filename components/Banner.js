@@ -7,19 +7,12 @@ import whats from "../assets/svg/whasp.svg"
 import {useRouter} from "next/router";
 import en from "../locales/en/en";
 import ru from "../locales/ru/ru";
+import { redirectTo } from "./commonFunctions";
 
 export default function Banner(props) {
     let router = useRouter()
     const {locale} = router;
     const t = locale === 'en' ? en : ru;
-
-    function redirectTo(path) {
-        debugger
-        return router.push({pathname:path, query: router.query});
-    }
-    function redirectToAnchor(anchor){
-        return router.push({pathname:"/", hash:anchor, query: router.query});
-    }
 
     return (
         <div className='container mb-6'>
@@ -32,14 +25,14 @@ export default function Banner(props) {
                             data-aos='fade-left'
                             data-aos-delay='300'
                             className="btn-grad demo-btn"
-                            onClick={() => redirectTo("/demo")}>
+                            onClick={() => redirectTo("/demo",router)}>
                             <label className="label has-text-weight-semibold has-text-white">{t.sign}</label>
                         </button>
                         <button
                             data-aos='fade-right'
                             data-aos-delay='400'
                             className="btn-orange-grad mt-3 test-drive-btn"
-                            onClick={() => redirectTo("/test_drive")}>
+                            onClick={() => redirectTo("/test_drive",router)}>
                             <label htmlFor="" className="label has-text-weight-semibold has-text-white">{t.testDriveStart}</label>
                         </button>
 
