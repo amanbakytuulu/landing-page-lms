@@ -1,11 +1,8 @@
 import logo from "../assets/svg/logo.svg"
 import Image from 'next/image'
-import Link from "next/link";
 import {useRouter} from "next/router";
-
 import en from '/locales/en/en';
 import ru from '/locales/ru/ru';
-
 import usa from "../assets/img/usa1.png"
 import rus from "../assets/img/rus1.png"
 import React, {useState} from "react";
@@ -126,42 +123,42 @@ export default function Header(...props) {
                             </button>
                         </div>
                         <div className="navbar-item">
-                            <a href={t.banner.insta} target='_blank' rel="noreferrer">
-                                <Image src={insta}/>
+                            <a href={t.banner.instagram} target='_blank' rel="noreferrer">
+                                <Image src={insta} alt="instagram"/>
                             </a>
                         </div>
                         <div className="navbar-item">
                             <a href={t.banner.whatsapp} target='_blank' rel="noreferrer">
-                                <Image src={whats}/>
+                                <Image src={whats} alt="what's up"/>
                             </a>
                         </div>
                         <div className="navbar-item">
                             <a href={t.banner.telegram} target='_blank' rel="noreferrer">
-                                <Image src={tg}/>
+                                <Image src={tg} alt="telegram"/>
                             </a>
                         </div>
                         <div className="navbar-item">
                             <a href={t.banner.facebook} target='_blank' rel="noreferrer">
-                                <Image src={fb}/>
+                                <Image src={fb} alt="facebook"/>
                             </a>
                         </div>
                         <div className="navbar-item has-dropdown is-hoverable lang-dropdown mr-6">
                             <a className="navbar-link is-arrowless">
                                 <Image className="language_img" src={locale === "en" ? usa : locale === "ru" ? rus : en}
-                                       alt=""/>
+                                       alt="language"/>
                             </a>
 
                             <div style={{cursor: "pointer"}} className="navbar-dropdown is-boxed is-right">
                                 <a className="navbar-item" id="en" onClick={changeLanguage}>
                                     <Image id="en" onClick={changeLanguage}
                                            src={usa} className="language_img"
-                                           alt=""/>
+                                           alt="language"/>
                                     <div id="en" onClick={changeLanguage} style={{marginLeft: 10}}>English</div>
                                 </a>
                                 <a className="navbar-item" id="ru" onClick={changeLanguage}>
                                     <Image id="ru" onClick={changeLanguage}
                                            src={rus} className="language_img"
-                                           alt=""/>
+                                           alt="language"/>
                                     <div id="ru" onClick={changeLanguage} style={{marginLeft: 10}}>Русский</div>
                                 </a>
                             </div>
@@ -222,23 +219,23 @@ export default function Header(...props) {
                     </ul>
                     <ul className="menu-list is-inline-flex">
                         <li>
-                            <a href={t.banner.insta} target='_blank' rel="noreferrer">
-                                <Image src={insta}/>
+                            <a href={t.banner.instagram} target='_blank' rel="noreferrer">
+                                <Image src={insta} alt="instagram"/>
                             </a>
                         </li>
                         <li>
                             <a href={t.banner.whatsapp} target='_blank' rel="noreferrer">
-                                <Image src={whats}/>
+                                <Image src={whats} alt="what's up"/>
                             </a>
                         </li>
                         <li>
                             <a href={t.banner.telegram} target='_blank' rel="noreferrer">
-                                <Image src={tg}/>
+                                <Image src={tg} alt="telegram"/>
                             </a>
                         </li>
                         <li>
                             <a href={t.banner.facebook} target='_blank' rel="noreferrer">
-                                <Image src={fb}/>
+                                <Image src={fb} alt="facebook"/>
                             </a>
                         </li>
                     </ul>

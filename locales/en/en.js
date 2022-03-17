@@ -20,10 +20,10 @@ export default {
         title: "Learning Management System for education centers",
         subtitle: "Our company will create a step-by-step system for you to go digital. What's more, we'll help you through the entire process!",
         btnText: "Try free 14 day trial",
-        insta: "https://instagram.com/codify_lms",
+        instagram: "https://instagram.com/codify_lms",
         facebook: "https://www.facebook.com/codify.lms/",
-        whatsapp: "http://wa.me/+996223333480",
-        telegram: "https://t.me/codifycrm",
+        whatsapp: "https://wa.me/+996223333480",
+        telegram: "https://t.me/codifylms",
     },
     checklist: {
         title: "Still not convinced? Start with a 14-day FREE trial",
@@ -251,7 +251,8 @@ export default {
         price: "Price",
     },
     footer: {
-        title: "Codify CRM LMS",
-        description: "An all-in-one platform for automating learning processes in educational centers"
+        title: "Codify LMS CRM",
+        privacy: "Privacy Policy",
+        copyright:"Codify LMS © 2019-2022"
     }
 }

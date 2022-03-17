@@ -18,10 +18,10 @@ export default {
         title: "Система управления обучением для образовательных центров",
         subtitle: "Наша компания создаст для вас поэтапную систему перехода в цифровой мир. Более того, мы будем помогать в течение всего процесса!",
         btnText: "Попробовать бесплатно 14 дней",
-        insta: "https://instagram.com/codify.lms",
+        instagram: "https://instagram.com/codify.lms",
         facebook: "https://www.facebook.com/codify.lms/",
-        whatsapp: "http://wa.me/+996223333480",
-        telegram: "https://t.me/codifycrm",
+        whatsapp: "https://wa.me/+996223333480",
+        telegram: "https://t.me/codifylms",
     },
     checklist: {
         title: "Все еще не убедились? Начните с 14-дневной БЕСПЛАТНОЙ пробной версии",
@@ -253,7 +253,8 @@ export default {
         price: "Цена",
     },
     footer:{
-        title: "Codify CRM LMS",
-        description: "Платформа \"всё в одном\" для автоматизации процессов обучения в образовательных центрах"
+        title: "Codify LMS CRM",
+        privacy: 'Политика конфиденциальности',
+        copyright:'Codify LMS © 2019-2022'
     }
 }
