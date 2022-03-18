@@ -37,7 +37,7 @@ export default function SingleForm(props) {
             }
         }
         comments.push(`Company name: ${data.company_name}`)
-        comments.push(`<b> FROM TEST DRIVE </b>`)
+        comments.push(`<b> DEMO </b>`)
 
         let values = {
             "first_name": data.first_name,
