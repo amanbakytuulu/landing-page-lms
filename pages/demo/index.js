@@ -18,7 +18,6 @@ export default function ThanksDemo(props) {
         description: t.openGraph.demo,
         openGraph: {
             url: `${baseURL}${locale}${router.pathname}`,
-            site_name: t.sign,
             title: t.sign,
             description: t.openGraph.demo
         }

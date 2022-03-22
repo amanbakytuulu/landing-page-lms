@@ -15,6 +15,13 @@ export default {
             },
             {
                 url: 'https://lms.codifylab.com/logo.png',
+                width: 1000,
+                height: 500,
+                alt: 'logo',
+                description:'Codify LMS — это простая платформа управления обучением'
+            },
+            {
+                url: 'https://lms.codifylab.com/logo.png',
                 alt: 'logo',
                 description:'Codify LMS — это простая платформа управления обучением'
             }

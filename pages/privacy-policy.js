@@ -14,7 +14,6 @@ export default function PrivacyPolicy(props) {
         description: t.openGraph.privacy_policy,
         openGraph: {
             url: `${baseURL}${locale}${router.pathname}`,
-            site_name: t.privacyContent.title,
             title: t.privacyContent.title,
             description: t.openGraph.privacy_policy
         }

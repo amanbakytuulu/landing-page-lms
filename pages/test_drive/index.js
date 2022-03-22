@@ -17,7 +17,6 @@ export default function TestDrivePage(props) {
         description: t.openGraph.test_drive,
         openGraph: {
             url: `${baseURL}${locale}${router.pathname}`,
-            site_name: t.test_drive.title,
             title: t.test_drive.title,
             description: t.openGraph.test_drive
         }

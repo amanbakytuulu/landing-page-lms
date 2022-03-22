@@ -46,7 +46,6 @@ export default function HomePage() {
         description: t.openGraph.main,
         openGraph: {
             url: `${baseURL}${locale}${router.pathname}`,
-            site_name:title,
             title:title,
             description: t.openGraph.main
         }
