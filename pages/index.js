@@ -1,6 +1,6 @@
-import {MainLayout} from "../components/MainLayout";
+import { MainLayout } from "../components/MainLayout";
 import Banner from "../components/Banner";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import MainFeatures from "../components/MainFeatures";
 import DemoMacbook from "../components/DemoMacbook";
 import Category from "../components/Category";
@@ -9,8 +9,8 @@ import Features from "../components/Features";
 import Pricing from "../components/Pricing";
 import ChecklistBanner from "../components/ChecklistBanner";
 import Request from "../components/Request";
-import {useState} from "react";
-import {NextSeo} from "next-seo";
+import { useState } from "react";
+import { NextSeo } from "next-seo";
 import Modal from "../components/Modal";
 import SingleForm from "../components/SingleForm";
 import en from '/locales/en/en';
@@ -23,7 +23,7 @@ import Stats from "../components/Stats";
 export default function HomePage() {
     const violetHex = "#7367F0"
     let router = useRouter()
-    const {locale} = router;
+    const { locale } = router;
     const t = locale === 'en' ? en : ru;
 
     let title =
@@ -41,21 +41,26 @@ export default function HomePage() {
     const [showModal, setShowModal] = useState(false)
     const [showDoneModal, setShowDoneModal] = useState(false)
 
-    const SEO={
-        openGraph:{
-            url:router.href
+    const baseURL="https://lms.codifylab.com/";
+    const SEO = {
+        description: t.openGraph.main,
+        openGraph: {
+            url: `${baseURL}${locale}${router.pathname}`,
+            site_name:title,
+            title:title,
+            description: t.openGraph.main
         }
     }
 
     return (
         <>
-            <NextSeo {...SEO}/>
+            <NextSeo {...SEO} />
             <MainLayout title={title}>
-                <Banner show={showModal} setShowModal={setShowModal}/>
-                <MainFeatures/>
-                <DemoMacbook/>
-                <Category/>
-                <Stats/>
+                <Banner show={showModal} setShowModal={setShowModal} />
+                <MainFeatures />
+                <DemoMacbook />
+                <Category />
+                <Stats />
                 <DynamicBanner
                     show={showModal} setShowModal={setShowModal}
                     bgColor={violetHex}
@@ -63,18 +68,18 @@ export default function HomePage() {
                     btnUrl={"google.com"}
                     btnText={trialBtnText}
                 />
-                <Features/>
-                <Advantages/>
-                <Feedbacks/>
-                <ChecklistBanner text bgColor={violetHex}/>
-                <QuestionAnswer/>
-                <Pricing show={showModal} setShowModal={setShowModal}/>
-                <Request/>
+                <Features />
+                <Advantages />
+                <Feedbacks />
+                <ChecklistBanner text bgColor={violetHex} />
+                <QuestionAnswer />
+                <Pricing show={showModal} setShowModal={setShowModal} />
+                <Request />
                 <Modal
                     onClose={() => setShowModal(false)}
                     show={showModal}
                 >
-                    <SingleForm/>
+                    <SingleForm />
                 </Modal>
             </MainLayout>
         </>

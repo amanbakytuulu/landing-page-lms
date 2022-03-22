@@ -2,8 +2,8 @@
 export default {
     validation: {
         required: "Required field",
-        email:"invalid email",
-        min:"not enough numbers"
+        email: "invalid email",
+        min: "not enough numbers"
     },
     promoVideoLinks: {
         main: "/en_promo.MOV"
@@ -16,22 +16,27 @@ export default {
     privacyPolicy: {
         title: "Privacy Policy",
     },
-    // openGraph:{
-    //     main:"Codify LMS is a simple learning management platform that " +
-    //         "keeps your students and entire schools focused on creating " +
-    //         "a better learning experience.\n" +
-    //         "Initially, LMS was built on the basis of an existing Codify academy " +
-    //         "to optimize our academy’s bureaucracy and increase course engagement " +
-    //         "by integrating one single platform to manage all processes. That’s how " +
-    //         "the Codify LMS took the most from the world’s best practices, where CRM " +
-    //         "and LMS systems are working in sync.\n" +
-    //         "Due to the simple user interface, it can be easily integrated into a large" +
-    //         "university or school as well as be a profound tool for an expert to provide" +
-    //         "a one-time course.",
-    //     demo:"",
-    //     test_drive:"",
-    //     privacy_policy:""
-    // },
+    openGraph: {
+        main: "Codify LMS is a simple learning management platform that " +
+            "keeps your students and entire schools focused on creating " +
+            "a better learning experience.\n" +
+            "Initially, LMS was built on the basis of an existing Codify academy " +
+            "to optimize our academy’s bureaucracy and increase course engagement " +
+            "by integrating one single platform to manage all processes. That’s how " +
+            "the Codify LMS took the most from the world’s best practices, where CRM " +
+            "and LMS systems are working in sync.\n" +
+            "Due to the simple user interface, it can be easily integrated into a large" +
+            "university or school as well as be a profound tool for an expert to provide" +
+            "a one-time course.",
+        demo: "demo is an integral part of any project work, it is carried out at the end " +
+            "of the sprint and is aimed at presenting the results of the work to the client.",
+        test_drive: "We offer a special program for those who want to test the products supplied"+
+        "by us. As part of the 'Test Drive' program, you will be able to explore the functionality,"+ 
+        "as well as evaluate the quality and reliability of the equipment.",
+        privacy_policy: "The Privacy Policy is a document in which you explain to users in what ways,"+ 
+        "for what purposes and to what extent their personal data will be processed on the site. In order"+ 
+        "to use the functions of the web resource, the visitor must agree to the terms of the policy."
+    },
     banner: {
         title: "Learning Management System for education centers",
         subtitle: "Our company will create a step-by-step system for you to go digital. What's more, we'll help you through the entire process!",
@@ -269,6 +274,6 @@ export default {
     footer: {
         title: "Codify LMS CRM",
         privacy: "Privacy Policy",
-        copyright:"Codify LMS © 2019-2022"
+        copyright: "Codify LMS © 2019-2022"
     }
 }
