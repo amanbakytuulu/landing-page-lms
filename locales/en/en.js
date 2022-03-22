@@ -16,6 +16,22 @@ export default {
     privacyPolicy: {
         title: "Privacy Policy",
     },
+    // openGraph:{
+    //     main:"Codify LMS is a simple learning management platform that " +
+    //         "keeps your students and entire schools focused on creating " +
+    //         "a better learning experience.\n" +
+    //         "Initially, LMS was built on the basis of an existing Codify academy " +
+    //         "to optimize our academy’s bureaucracy and increase course engagement " +
+    //         "by integrating one single platform to manage all processes. That’s how " +
+    //         "the Codify LMS took the most from the world’s best practices, where CRM " +
+    //         "and LMS systems are working in sync.\n" +
+    //         "Due to the simple user interface, it can be easily integrated into a large" +
+    //         "university or school as well as be a profound tool for an expert to provide" +
+    //         "a one-time course.",
+    //     demo:"",
+    //     test_drive:"",
+    //     privacy_policy:""
+    // },
     banner: {
         title: "Learning Management System for education centers",
         subtitle: "Our company will create a step-by-step system for you to go digital. What's more, we'll help you through the entire process!",

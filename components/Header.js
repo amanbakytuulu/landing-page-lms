@@ -14,7 +14,6 @@ import tg from "../assets/svg/tg.svg";
 import fb from "../assets/svg/fb.svg";
 import SingleForm from "./SingleForm";
 import Modal from "./Modal";
-import { redirectToAnchor } from './commonFunctions';
 
 export default function Header(...props) {
     let router = useRouter()
@@ -27,6 +26,12 @@ export default function Header(...props) {
         setAsideShow(false)
         return router.push({pathname: path, query: router.query}, undefined, {scroll: true});
     }
+
+    function redirectToAnchor(anchor) {
+        setAsideShow(false)
+        return router.push({pathname: "/", hash: anchor, query: router.query});
+    }
+
 
     const changeLanguage = (e) => {
         const locale = e.target.id;
@@ -72,7 +77,7 @@ export default function Header(...props) {
 
                 <div className="navbar-menu">
 
-                    <div className="navbar-item" onClick={() => redirectToAnchor('#product-block',router)}>
+                    <div className="navbar-item" onClick={() => redirectToAnchor('#product-block')}>
                         <div className="violet-text">
                             <h4>
                                 <a>
@@ -81,21 +86,21 @@ export default function Header(...props) {
                             </h4>
                         </div>
                     </div>
-                    <div className="navbar-item" onClick={() => redirectToAnchor("#category-block",router)}>
+                    <div className="navbar-item" onClick={() => redirectToAnchor("#category-block")}>
                         <div className="violet-text">
                             <a>
                                 <h4>{t.layout.category}</h4>
                             </a>
                         </div>
                     </div>
-                    <div className="navbar-item" onClick={() => redirectToAnchor("#features-block",router)}>
+                    <div className="navbar-item" onClick={() => redirectToAnchor("#features-block")}>
                         <div className="violet-text">
                             <a>
                                 <h4>{t.layout.features}</h4>
                             </a>
                         </div>
                     </div>
-                    <div className="navbar-item" onClick={() => redirectToAnchor("#pricing-block",router)}>
+                    <div className="navbar-item" onClick={() => redirectToAnchor("#pricing-block")}>
                         <div className="violet-text">
                             <a>
                                 <h4>{t.layout.price}</h4>
@@ -173,22 +178,22 @@ export default function Header(...props) {
                             <p>{router.locale === "ru" ? "Навигация" : "Navigation"}</p>
                         </li>
                         <li>
-                            <a onClick={() => redirectToAnchor("#product-block",router)}>
+                            <a onClick={() => redirectToAnchor("#product-block")}>
                                 {t.layout.product}
                             </a>
                         </li>
                         <li>
-                            <a onClick={() => redirectToAnchor("#category-block",router)}>
+                            <a onClick={() => redirectToAnchor("#category-block")}>
                                 {t.layout.category}
                             </a>
                         </li>
                         <li>
-                            <a onClick={() => redirectToAnchor("#features-block",router)}>
+                            <a onClick={() => redirectToAnchor("#features-block")}>
                                 {t.layout.features}
                             </a>
                         </li>
                         <li>
-                            <a onClick={() => redirectToAnchor("#pricing-block",router)}>
+                            <a onClick={() => redirectToAnchor("#pricing-block")}>
                                 {t.layout.price}
                             </a>
                         </li>
