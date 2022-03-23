@@ -9,7 +9,7 @@ import Features from "../components/Features";
 import Pricing from "../components/Pricing";
 import ChecklistBanner from "../components/ChecklistBanner";
 import Request from "../components/Request";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { NextSeo } from "next-seo";
 import Modal from "../components/Modal";
 import SingleForm from "../components/SingleForm";
@@ -19,6 +19,7 @@ import Feedbacks from "../components/Feedbacks";
 import Advantages from "../components/Advantages";
 import QuestionAnswer from "../components/QuestionAnswer";
 import Stats from "../components/Stats";
+import CallbackModal from "../components/CallbackModal";
 
 export default function HomePage() {
     const violetHex = "#7367F0"
@@ -38,6 +39,7 @@ export default function HomePage() {
         router.locale === 'en' ? 'Accounting software built for owners' :
             router.locale === 'ru' ? "Бухгалтерское программное обеспечение, созданное для владельцев" : "Now 70% Off for 3 Months"
 
+    const [show,setShow]= useState(false);
     const [showModal, setShowModal] = useState(false)
     const [showDoneModal, setShowDoneModal] = useState(false)
 
@@ -50,6 +52,23 @@ export default function HomePage() {
             description: t.openGraph.main
         }
     }
+
+    useEffect(()=>{
+        let timeID= setTimeout(()=>{
+            if(!sessionStorage.getItem('popup1'))
+            {
+                setShow(true);
+                sessionStorage.setItem('popup1','true');
+            }
+            else if(!sessionStorage.getItem('popup2'))
+            {
+                setShow(true);
+                sessionStorage.setItem('popup2','true');
+            }
+
+        },5000)
+        return clearTimeout(timeID)
+    },[])
 
     return (
         <>
@@ -80,6 +99,7 @@ export default function HomePage() {
                 >
                     <SingleForm />
                 </Modal>
+                <CallbackModal show={show} setShow={setShow}/>
             </MainLayout>
         </>
     )

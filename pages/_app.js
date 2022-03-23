@@ -18,7 +18,9 @@ export default function MyApp({ Component, pageProps }) {
         AOS.init()
         AOS.refresh();
         TagManager.initialize(tagManagerArgs)
+
     }, []);
+
     return(
         <>
             <DefaultSeo {...SEO}/>

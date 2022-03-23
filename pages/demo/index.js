@@ -7,6 +7,8 @@ import ru_laptop from "../../assets/img/ru-main-with-book.png";
 import en_laptop from "../../assets/img/en-main-with-book.png";
 import SingleForm from "../../components/SingleForm";
 import { NextSeo } from "next-seo";
+import CallbackModal from "../../components/CallbackModal";
+import {useEffect, useState} from "react";
 
 export default function ThanksDemo(props) {
     let router = useRouter()
@@ -22,6 +24,24 @@ export default function ThanksDemo(props) {
             description: t.openGraph.demo
         }
     }
+
+    const [show,setShow]= useState(false);
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            if(!sessionStorage.getItem('popup1'))
+            {
+                setShow(true);
+                sessionStorage.setItem('popup1','true');
+            }
+            else if(!sessionStorage.getItem('popup2'))
+            {
+                setShow(true);
+                sessionStorage.setItem('popup2','true');
+            }
+
+        },5000)
+    },[])
 
     return (
         <>
@@ -56,6 +76,8 @@ export default function ThanksDemo(props) {
                         </div>
                     </div>
                 </div>
+                <CallbackModal show={show} setShow={setShow}/>
+
             </MainLayout>
         </>
     )

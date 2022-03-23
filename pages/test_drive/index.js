@@ -6,6 +6,8 @@ import TestDriveForm from "../../components/TestDriveForm";
 import Image from "next/image";
 import laptop from "../../assets/img/main.png";
 import { NextSeo } from "next-seo";
+import {useEffect, useState} from "react";
+import CallbackModal from "../../components/CallbackModal";
 
 export default function TestDrivePage(props) {
     let router = useRouter()
@@ -21,6 +23,24 @@ export default function TestDrivePage(props) {
             description: t.openGraph.test_drive
         }
     }
+
+    const [show,setShow]= useState(false);
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            if(!sessionStorage.getItem('popup1'))
+            {
+                setShow(true);
+                sessionStorage.setItem('popup1','true');
+            }
+            else if(!sessionStorage.getItem('popup2'))
+            {
+                setShow(true);
+                sessionStorage.setItem('popup2','true');
+            }
+
+        },5000)
+    },[])
 
     return (
         <>
@@ -50,6 +70,8 @@ export default function TestDrivePage(props) {
                         </div>
                     </div>
                 </div>
+                <CallbackModal show={show} setShow={setShow}/>
+
             </MainLayout>
         </>
     )

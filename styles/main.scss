@@ -46,7 +46,18 @@ button {
   }
 
 }
-
+.btn-modal{
+  border: 0;
+  text-decoration: none;
+  text-transform: none!important;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1.5rem 2.5rem;
+  border-radius: 5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
 .my-modal {
   height: 100vh;
   width: 100vh;
