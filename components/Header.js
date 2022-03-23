@@ -61,17 +61,29 @@ export default function Header(...props) {
                   }
                 `}
             </style>
-            <nav className="navbar has-text-justified-desktop is-fixed-top" role="navigation" aria-label="main navigation">
+            <nav className="navbar has-text-justified-desktop is-fixed-top" role="navigation"
+                 aria-label="main navigation">
                 <div className="navbar-brand">
                     <a>
                         <div className='navbar-item' onClick={() => redirectTo("/")}>
                             <Image width="169" height="35" alt="Codify LMS x CRM" src={logo}/>
                         </div>
                     </a>
-                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="true" onClick={() => setAsideShow(!asideShow)}>
-                        <span aria-hidden="true"/>
-                        <span aria-hidden="true"/>
-                        <span aria-hidden="true"/>
+                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="true"
+                       onClick={() => setAsideShow(!asideShow)}>
+                        {!asideShow ? (
+                            <>
+                                <span aria-hidden="true"/>
+                                <span aria-hidden="true"/>
+                                <span aria-hidden="true"/>
+                            </>
+                        ) : (
+                            <>
+                                <span className={"burger-line"} aria-hidden="true"/>
+                                <span className={"burger-line"} aria-hidden="true"/>
+                                <span className={"burger-line"} aria-hidden="true"/>
+                            </>
+                        )}
                     </a>
                 </div>
 
@@ -109,7 +121,8 @@ export default function Header(...props) {
                     </div>
                     <div className="navbar-end">
                         <div className="navbar-item">
-                            <button style={{color: '#ffffff'}} onClick={() => redirectTo("/demo")} className='button btn-orange-grad demo-btn is-small'>
+                            <button style={{color: '#ffffff'}} onClick={() => redirectTo("/demo")}
+                                    className='button btn-orange-grad demo-btn is-small'>
                                 {t.sign}
                             </button>
                         </div>
@@ -207,13 +220,15 @@ export default function Header(...props) {
                         </li>
                         <li>
                             <div style={{cursor: "pointer"}} className="navbar-dropdown is-boxed is-right mb-3">
-                                <a style={{display:'flex', alignItems:'center'}} className="navbar-item" id="en" onClick={changeLanguage}>
+                                <a style={{display: 'flex', alignItems: 'center'}} className="navbar-item" id="en"
+                                   onClick={changeLanguage}>
                                     <Image id="en" onClick={changeLanguage}
                                            src={usa} className="language_img"
                                            alt="usa"/>
                                     <div id="en" onClick={changeLanguage} style={{marginLeft: 12}}>English</div>
                                 </a>
-                                <a style={{display:'flex', alignItems:'center'}} className="navbar-item" id="ru" onClick={changeLanguage}>
+                                <a style={{display: 'flex', alignItems: 'center'}} className="navbar-item" id="ru"
+                                   onClick={changeLanguage}>
                                     <Image id="ru" onClick={changeLanguage}
                                            src={rus} className="language_img"
                                            alt="rus"/>
@@ -245,7 +260,8 @@ export default function Header(...props) {
                         </li>
                     </ul>
                     <div className="navbar-item">
-                        <button className='button btn-orange-grad is-small demo-btn pb-5' onClick={() => redirectTo("/demo")}>
+                        <button className='button btn-orange-grad is-small demo-btn pb-5'
+                                onClick={() => redirectTo("/demo")}>
                             {t.sign}
                         </button>
                     </div>

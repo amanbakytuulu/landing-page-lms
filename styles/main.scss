@@ -956,6 +956,30 @@ aside {
       }
     }
   }
+  //burger
+.navbar-burger{
+  position: relative;
+  transition: all 0.2s linear;
+  & .burger-line{
+    position: absolute;
+    transition: all 0.2s linear;
+  }
+  & .burger-line:nth-child(2n)
+  {
+   opacity: 0;
+  }
+  & .burger-line:first-child{
+    top:25px;
+    transform: rotate(45deg);
+  }
+  & .burger-line:last-child{
+    top:25px;
+    transform: rotate(-45deg);
+  }
+}
+
+
+
   //footer adaptive
   footer{
     @media (max-width:888px) {
