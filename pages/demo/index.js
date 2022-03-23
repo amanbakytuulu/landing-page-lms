@@ -28,7 +28,7 @@ export default function ThanksDemo(props) {
     const [show,setShow]= useState(false);
 
     useEffect(()=>{
-        setTimeout(()=>{
+        let timeID= setTimeout(()=>{
             if(!sessionStorage.getItem('popup1'))
             {
                 setShow(true);
@@ -40,7 +40,8 @@ export default function ThanksDemo(props) {
                 sessionStorage.setItem('popup2','true');
             }
 
-        },5000)
+        },40000)
+        return ()=>clearTimeout(timeID)
     },[])
 
     return (

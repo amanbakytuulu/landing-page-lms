@@ -66,8 +66,8 @@ export default function HomePage() {
                 sessionStorage.setItem('popup2','true');
             }
 
-        },5000)
-        return clearTimeout(timeID)
+        },40000)
+        return ()=>clearTimeout(timeID)
     },[])
 
     return (
