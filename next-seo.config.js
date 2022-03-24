@@ -8,19 +8,19 @@ export default {
         description:'Codify LMS — это простая платформа управления обучением',
         images: [
             {
-                url: 'https://lms.codifylab.com/logo.jpg',
+                url: 'https://lms.codifylab.com/logo.png',
                 width: 1200,
                 height: 630,
                 alt: 'logo',
             },
             {
-                url: 'https://lms.codifylab.com/logo.jpg',
+                url: 'https://lms.codifylab.com/logo.png',
                 width: 900,
                 height: 900,
                 alt: 'logo'
             },
             {
-                url: 'https://lms.codifylab.com/logo.jpg',
+                url: 'https://lms.codifylab.com/logo.png',
                 alt: 'logo'
             }
         ]
