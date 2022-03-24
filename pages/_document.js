@@ -10,7 +10,6 @@ class MainDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
                     <meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
                     <link rel="bower_components/aos/dist/aos.js"/>
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>

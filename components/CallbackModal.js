@@ -7,7 +7,7 @@ export default function CallbackModal({show, setShow}) {
     return (
         <div className={`modal ${show ? 'is-active' : ''} has-text-centered`}  >
             <div className="modal-background"></div>
-            <div className="modal-content box m-2 " style={{width:'500px',maxWidth:'500px',width:'100%'}} >
+            <div className="modal-content box m-2 " style={{maxWidth:'500px',width:'100%'}} >
                 <Image className={"image"} src={gift}/>
                 <button className="delete is-large" aria-label="close" style={{position: 'absolute', right: '20px'}}
                         onClick={() => setShow(false)}

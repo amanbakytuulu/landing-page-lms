@@ -93,7 +93,7 @@ export default function Category() {
                     <div className="content">
                         <h1>{router.locale === 'en'? "Category or who it suits" : router.locale === "ru" ? "Категории или кому это подходит" : "Category"}</h1><br/>
                         <div className="tabs is-centered">
-                            <ul>
+                            <ul className={"is-block-mobile ml-0"}>
                                 <li className={toggleState === 1 ? "is-active violet-text" : ""}
                                     onClick={() => toggleTab(1)}><a>{business}</a></li>
                                 <li className={toggleState === 2 ? "is-active violet-text" : ""}

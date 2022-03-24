@@ -74,13 +74,13 @@ export default function Advantages() {
             <div data-aos='fade-up' className="container mt-6">
                 <div id='advantages-block' className="box">
                     <div className="content">
-                        <table className="table is-striped is-hoverable">
-                            <tbody className='has-text-centered-desktop'>
+                        <table className="table is-striped is-hoverable ">
+                            <tbody className="has-text-centered-desktop ">
                             <tr>
-                                <th>{t.a8s.title}</th>
-                                <th className='violet-text'>Codify LMS CRM</th>
-                                <th>Bitrix24</th>
-                                <th>GetCourse</th>
+                                <th className="is-vcentered ">{t.a8s.title}</th>
+                                <th className='violet-text is-size-7-mobile px-0 has-text-centered is-vcentered'>Codify LMS CRM</th>
+                                <th className={`is-size-7-mobile px-2 is-vcentered has-text-black `}>Bitrix24</th>
+                                <th className="is-size-7-mobile  px-0 is-vcentered has-text-black">GetCourse</th>
                             </tr>
                             {createNotCheckedRow(t.a8s.first)}
                             {createNotCheckedRow(t.a8s.second)}

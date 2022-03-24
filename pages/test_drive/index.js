@@ -24,25 +24,6 @@ export default function TestDrivePage(props) {
         }
     }
 
-    const [show,setShow]= useState(false);
-
-    useEffect(()=>{
-        let timeID= setTimeout(()=>{
-            if(!sessionStorage.getItem('popup1'))
-            {
-                setShow(true);
-                sessionStorage.setItem('popup1','true');
-            }
-            else if(!sessionStorage.getItem('popup2'))
-            {
-                setShow(true);
-                sessionStorage.setItem('popup2','true');
-            }
-
-        },40000)
-        return ()=>clearTimeout(timeID)
-    },[])
-
     return (
         <>
             <NextSeo {...SEO} />
@@ -71,8 +52,6 @@ export default function TestDrivePage(props) {
                         </div>
                     </div>
                 </div>
-                <CallbackModal show={show} setShow={setShow}/>
-
             </MainLayout>
         </>
     )

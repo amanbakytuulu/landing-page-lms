@@ -246,6 +246,11 @@ button {
     }
   }
 
+  @media (max-width: 428px) {
+    padding: 10px 34px;
+    width: 100%;
+  }
+
   &:focus {
     outline: none;
   }
