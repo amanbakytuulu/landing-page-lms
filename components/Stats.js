@@ -14,11 +14,14 @@ export function createStatBlock(title, K, subtitle) {
             if (window.scrollY > top - window.innerHeight / 2) {
                 this.removeEventListener('scroll', onScroll);
                 let interval = setInterval(function () {
-                    setNum(++num);
+                    if(num>title){
+                        clearInterval(interval);
+                    }
                     if (num == title) {
                         clearInterval(interval);
                     }
-                }, 50);
+                    setNum(num++);
+                }, 100);
             }
         });
     }, []);
@@ -26,7 +29,7 @@ export function createStatBlock(title, K, subtitle) {
     return (
         <>
             <div className="column">
-                <span ref={refComponent} className='number stats violet-text has-text-weight-semibold'>
+                <span ref={refComponent} className='stats violet-text has-text-weight-semibold'>
                     {'+'}{num}{`${K}`}
                 </span>
                 <div/>
