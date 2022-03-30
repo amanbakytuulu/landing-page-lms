@@ -47,9 +47,10 @@ export default {
         telegram: "https://t.me/codifylms",
     },
     checklist: {
-        title: "Still not convinced? Start with a 14-day FREE trial",
-        subtitle: "You will get full access to with all the features for 14 days.",
-        btnText: "Download checklist"
+        title: "Don't know where to start? Start with a 14-day FREE trial right now!",
+        subtitle: "Get an individual demo presentation and discuss business optimization opportunities with the manager.",
+        btnText: "Download checklist",
+        btnOrder: "ORDER A DEMO PRESENTATION"
     },
     pricing: {
         title: "Tariffs",
