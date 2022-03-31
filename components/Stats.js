@@ -3,15 +3,14 @@ import en from "../locales/en/en";
 import ru from "../locales/ru/ru";
 import {createRef, useEffect, useState} from "react";
 
-export function createStatBlock(title, K, subtitle) {
+export function CreateStatBlock(title, K, subtitle) {
     let [num, setNum] = useState(0);
     const refComponent = createRef();
-
     useEffect(() => {
         const top = refComponent.current.getBoundingClientRect().top;
 
         window.addEventListener('scroll', function onScroll() {
-            if (window.scrollY > top - window.innerHeight / 2) {
+            if (window.scrollY > top - window.innerHeight / 1.3) {
                 this.removeEventListener('scroll', onScroll);
                 let interval = setInterval(function () {
                     if(num>title){
@@ -21,7 +20,7 @@ export function createStatBlock(title, K, subtitle) {
                         clearInterval(interval);
                     }
                     setNum(num++);
-                }, 100);
+                }, 90);
             }
         });
     }, []);
@@ -51,9 +50,9 @@ export default function Stats() {
                 <div className="box">
                     <div className="content">
                         <div className="columns mt-3 mb-3 has-text-centered">
-                            {createStatBlock(35, 'K', t.stats.activeUsers)}
-                            {createStatBlock(71, '', t.stats.partners)}
-                            {createStatBlock(2, 'K', t.stats.courses)}
+                            {CreateStatBlock(35, 'K', t.stats.activeUsers)}
+                            {CreateStatBlock(71, '', t.stats.partners)}
+                            {CreateStatBlock(2, 'K', t.stats.courses)}
                         </div>
                     </div>
                 </div>

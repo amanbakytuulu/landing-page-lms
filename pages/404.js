@@ -25,7 +25,7 @@ export default function Custom404() {
         <MainLayout title="Page not found">
             <div style={{margin: "0 auto"}} className="container mb-6 is-centered is-center has-text-centered-desktop">
                 <div className="box">
-                    <Image src={img404}/>
+                    <Image src={img404} alt="error"/>
                     <Link href="/">
                         <a>
                             <button className="btn-grad">{t.goBackBtnText}</button>

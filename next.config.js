@@ -12,7 +12,6 @@ module.exports = {
                 crypto: false
             }
         }
-
         return config;
     },
     async rewrites() {
